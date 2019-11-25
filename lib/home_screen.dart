@@ -74,31 +74,31 @@ class HomeScreenState extends State<HomeScreen> {
                             children: <Widget>[
                               PortraitCard(
                                 rating: 2,
-                                imagePath: 'assets/graphic_designer.jpg',
+                                imagePath: 'assets/image2.png',
                                 lessonName: Strings.graphicDesigner,
                                 numberOfCourses: "234",
                               ),
                               PortraitCard(
                                 rating: 3.5,
-                                imagePath: 'assets/swimming.jpg',
+                                imagePath: 'assets/image3.png',
                                 lessonName: Strings.swimming,
                                 numberOfCourses: "34",
                               ),
                               PortraitCard(
                                 rating: 3,
-                                imagePath: 'assets/swimming.jpg',
+                                imagePath: 'assets/image2.png',
                                 lessonName: Strings.swimming,
                                 numberOfCourses: "34",
                               ),
                               PortraitCard(
                                 rating: 3,
-                                imagePath: 'assets/swimming.jpg',
+                                imagePath: 'assets/image3.png',
                                 lessonName: Strings.swimming,
                                 numberOfCourses: "34",
                               ),
                               PortraitCard(
                                 rating: 3,
-                                imagePath: 'assets/swimming.jpg',
+                                imagePath: 'assets/image3.png',
                                 lessonName: Strings.swimming,
                                 numberOfCourses: "34",
                               ),
@@ -123,13 +123,13 @@ class HomeScreenState extends State<HomeScreen> {
                             children: <Widget>[
                               PortraitCard(
                                 rating: 3.5,
-                                imagePath: 'assets/graphic_designer.jpg',
+                                imagePath: 'assets/image2.png',
                                 lessonName: Strings.graphicDesigner,
                                 numberOfCourses: "234",
                               ),
                               PortraitCard(
                                 rating: 3,
-                                imagePath: 'assets/swimming.jpg',
+                                imagePath: 'assets/image3.png',
                                 lessonName: Strings.swimming,
                                 numberOfCourses: "34",
                               ),
