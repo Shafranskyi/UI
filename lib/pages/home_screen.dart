@@ -60,7 +60,7 @@ class HomeScreenState extends State<HomeScreen> {
                       Padding(
                         padding: EdgeInsets.symmetric(
                           horizontal: 3.0 * SizeConfig.widthMultiplier,
-                          vertical: 3.0 * SizeConfig.heightMultiplier,
+                          vertical: 3.2 * SizeConfig.heightMultiplier,
                         ),
                         child: Text(
                           Strings.HostelsNearby,
@@ -77,18 +77,21 @@ class HomeScreenState extends State<HomeScreen> {
                                 imagePath: 'assets/image2.png',
                                 lessonName: Strings.LisbonSA,
                                 numberOfCourses: "234",
+                                recommended: false,
                               ),
                               PortraitCard(
                                 rating: 3.5,
                                 imagePath: 'assets/image3.png',
                                 lessonName: Strings.BBHotelBerlin,
                                 numberOfCourses: "34",
+                                recommended: true,
                               ),
                               PortraitCard(
                                 rating: 3,
                                 imagePath: 'assets/image4.png',
                                 lessonName: Strings.ParkPlazaWB,
                                 numberOfCourses: "55",
+                                recommended: false,
                               ),
                             ],
                           ),
@@ -117,12 +120,14 @@ class HomeScreenState extends State<HomeScreen> {
                                 imagePath: 'assets/image2.png',
                                 lessonName: Strings.graphicDesigner,
                                 numberOfCourses: "234",
+                                recommended: true,
                               ),
                               PortraitCard(
                                 rating: 3,
                                 imagePath: 'assets/image3.png',
                                 lessonName: Strings.swimming,
                                 numberOfCourses: "34",
+                                recommended: false,
                               ),
                             ],
                           ),
@@ -245,22 +250,23 @@ class StarRating extends StatelessWidget {
 class PortraitCard extends StatefulWidget{
   final String imagePath, lessonName, numberOfCourses;
   final double rating;
+  final bool recommended;
 
-  PortraitCard({Key key, this.rating, this.imagePath, this.lessonName, this.numberOfCourses}) : super(key: key);
+  PortraitCard({Key key, this.rating, this.imagePath, this.lessonName, this.numberOfCourses, this.recommended}) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() => PortraitCardState(rating, imagePath, lessonName, numberOfCourses);
+  State<StatefulWidget> createState() => PortraitCardState(rating, imagePath, lessonName, numberOfCourses, recommended);
 }
 
 class PortraitCardState extends State<PortraitCard> {
   final String imagePath, lessonName, numberOfCourses;
   double rating;
   bool like = false;
+  bool recommended;
 
-  PortraitCardState(this.rating, this.imagePath, this.lessonName, this.numberOfCourses);
+  PortraitCardState(this.rating, this.imagePath, this.lessonName, this.numberOfCourses, this.recommended);
 
-  bool pressFavorite(bool key)
-  {
+  bool pressFavorite(bool key) {
     return !key;
   }
 
@@ -301,13 +307,41 @@ class PortraitCardState extends State<PortraitCard> {
                         top: 0.0,
                         child: new IconButton(
                             icon: new Icon(Icons.favorite_border, color: like ? Colors.red : Colors.white),
-                            onPressed: ()
-                            {
-                              setState(()
-                              {
+                            onPressed: () {
+                              setState(() {
                                 like = pressFavorite(like); //<--update alreadSaved
                               });
                             }
+                        ),
+                      ),
+                      Visibility(
+                        visible: recommended,
+                        child: Positioned(
+                          left: 9.0,
+                          bottom: 7.0,
+                          right: 9.0,
+                          child: Container(
+                            height: 3.5 * SizeConfig.heightMultiplier,
+                            decoration: BoxDecoration(
+                              color: Colors.black.withOpacity(0.3),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(3.0 * SizeConfig.heightMultiplier),
+                              ),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: <Widget>[
+                                Icon(Icons.check_circle, color: Colors.green, size: 16),
+                                Text("RECOMMENDED", style: TextStyle(fontSize: 11, color: AppTheme.white))
+                              ],
+                            ),
+//                            icon: new Icon(Icons.favorite_border, color: like ? Colors.red : Colors.white),
+//                            onPressed: () {
+//                              setState(() {
+//                                like = pressFavorite(like); //<--update alreadSaved
+//                              });
+//                            }
+                          ),
                         ),
                       ),
                     ],
