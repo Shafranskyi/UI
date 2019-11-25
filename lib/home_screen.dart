@@ -50,7 +50,7 @@ class HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 Container(
-                  constraints: BoxConstraints(maxHeight: 72 * SizeConfig.heightMultiplier),
+                  constraints: BoxConstraints(maxHeight: 76 * SizeConfig.heightMultiplier),
                   decoration: BoxDecoration(
                     color: AppTheme.white,
                   ),
@@ -152,41 +152,41 @@ class HomeScreenState extends State<HomeScreen> {
               icon: Icon(Icons.home,color: Colors.grey[500]),
               activeIcon: Icon(
                 Icons.home,
-                color: AppTheme.topBarBackgroundColor,
+                color: AppTheme.selectedTabBackgroundColor,
               ),
-              title: new Text('Home', style: TextStyle(color: AppTheme.topBarBackgroundColor ),),
+              title: new Text('Home', style: TextStyle(color: AppTheme.selectedTabBackgroundColor ),),
           ),
           BottomNavigationBarItem(
               icon: Icon(Icons.explore,color: Colors.grey[500]),
               activeIcon: Icon(
                 Icons.explore,
-                color: AppTheme.topBarBackgroundColor,
+                color: AppTheme.selectedTabBackgroundColor,
               ),
-              title: new Text('Search', style: TextStyle(color: AppTheme.topBarBackgroundColor ))
+              title: new Text('Search', style: TextStyle(color: AppTheme.selectedTabBackgroundColor ))
           ),
           BottomNavigationBarItem(
               icon: Icon(Icons.business_center,color: Colors.grey[500]),
               activeIcon: Icon(
                 Icons.business_center,
-                color: AppTheme.topBarBackgroundColor,
+                color: AppTheme.selectedTabBackgroundColor,
               ),
-              title: new Text('My Booking', style: TextStyle(color: AppTheme.topBarBackgroundColor ))
+              title: new Text('My Booking', style: TextStyle(color: AppTheme.selectedTabBackgroundColor ))
           ),
           BottomNavigationBarItem(
               icon: Icon(Icons.email,color: Colors.grey[500]),
               activeIcon: Icon(
                 Icons.email,
-                color: AppTheme.topBarBackgroundColor,
+                color: AppTheme.selectedTabBackgroundColor,
               ),
-              title: new Text('Connect', style: TextStyle(color: AppTheme.topBarBackgroundColor ))
+              title: new Text('Connect', style: TextStyle(color: AppTheme.selectedTabBackgroundColor ))
           ),
           BottomNavigationBarItem(
               icon: Icon(Icons.person,color: Colors.grey[500]),
               activeIcon: Icon(
                 Icons.person,
-                color: AppTheme.topBarBackgroundColor,
+                color: AppTheme.selectedTabBackgroundColor,
               ),
-              title: new Text('Profile', style: TextStyle(color: AppTheme.topBarBackgroundColor ))
+              title: new Text('Profile', style: TextStyle(color: AppTheme.selectedTabBackgroundColor ))
           )
         ],
         onTap: (_cIndex){
@@ -213,6 +213,7 @@ class StarRating extends StatelessWidget {
     if (index >= rating) {
       icon = new Icon(
         Icons.star_border,
+        size: 16,
         color: Theme
             .of(context)
             .buttonColor,
@@ -221,6 +222,7 @@ class StarRating extends StatelessWidget {
     else if (index > rating - 1 && index < rating) {
       icon = new Icon(
         Icons.star_half,
+        size: 16,
         color: color ?? Theme
             .of(context)
             .primaryColor,
@@ -228,6 +230,7 @@ class StarRating extends StatelessWidget {
     } else {
       icon = new Icon(
         Icons.star,
+        size: 16,
         color: color ?? Theme
             .of(context)
             .primaryColor,
@@ -261,8 +264,14 @@ class PortraitCard extends StatefulWidget{
 class PortraitCardState extends State<PortraitCard> {
   final String imagePath, lessonName, numberOfCourses;
   double rating;
+  bool like = false;
 
   PortraitCardState(this.rating, this.imagePath, this.lessonName, this.numberOfCourses);
+
+  bool pressFavorite(bool key)
+  {
+    return !key;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -279,9 +288,39 @@ class PortraitCardState extends State<PortraitCard> {
               ),
               child: AspectRatio(
                 aspectRatio: 1,
-                child: Image.asset(
-                  imagePath,
-                  fit: BoxFit.fitHeight,
+                child: Container(
+                  decoration: new BoxDecoration(
+                    image: new DecorationImage(
+                      image: new AssetImage(imagePath),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  child: Stack(
+                    children: <Widget>[
+                      Positioned(
+                        right:0.0,
+                        top: 0.0,
+                        child: new IconButton(
+                          icon: new Icon(Icons.favorite, color:  like ? Colors.red : null),
+                          onPressed: null,
+                        ),
+                      ),
+                      Positioned(
+                        right:0.0,
+                        top: 0.0,
+                        child: new IconButton(
+                            icon: new Icon(Icons.favorite_border, color: like ? Colors.red : Colors.white),
+                            onPressed: ()
+                            {
+                              setState(()
+                              {
+                                like = pressFavorite(like); //<--update alreadSaved
+                              });
+                            }
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -293,6 +332,7 @@ class PortraitCardState extends State<PortraitCard> {
               children: <Widget>[
                 StarRating(
                   rating: rating,
+                  color: AppTheme.selectedTabBackgroundColor,
                   onRatingChanged: (rating) => setState(() => this.rating = rating),
                 ),
                 Text(
