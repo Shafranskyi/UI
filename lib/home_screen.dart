@@ -50,7 +50,7 @@ class HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 Container(
-                  constraints: BoxConstraints(maxHeight: 76 * SizeConfig.heightMultiplier),
+                  constraints: BoxConstraints(maxHeight: 88 * SizeConfig.heightMultiplier),
                   decoration: BoxDecoration(
                     color: AppTheme.white,
                   ),
@@ -75,45 +75,36 @@ class HomeScreenState extends State<HomeScreen> {
                               PortraitCard(
                                 rating: 2,
                                 imagePath: 'assets/image2.png',
-                                lessonName: Strings.graphicDesigner,
+                                lessonName: Strings.LisbonSA,
                                 numberOfCourses: "234",
                               ),
                               PortraitCard(
                                 rating: 3.5,
                                 imagePath: 'assets/image3.png',
-                                lessonName: Strings.swimming,
+                                lessonName: Strings.BBHotelBerlin,
                                 numberOfCourses: "34",
                               ),
                               PortraitCard(
                                 rating: 3,
-                                imagePath: 'assets/image2.png',
-                                lessonName: Strings.swimming,
-                                numberOfCourses: "34",
-                              ),
-                              PortraitCard(
-                                rating: 3,
-                                imagePath: 'assets/image3.png',
-                                lessonName: Strings.swimming,
-                                numberOfCourses: "34",
-                              ),
-                              PortraitCard(
-                                rating: 3,
-                                imagePath: 'assets/image3.png',
-                                lessonName: Strings.swimming,
-                                numberOfCourses: "34",
+                                imagePath: 'assets/image4.png',
+                                lessonName: Strings.ParkPlazaWB,
+                                numberOfCourses: "55",
                               ),
                             ],
                           ),
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 2.0 * SizeConfig.widthMultiplier,
-                          vertical: 1 * SizeConfig.heightMultiplier,
-                        ),
-                        child: Text(
-                          Strings.joinAWorkshop,
-                          style: Theme.of(context).textTheme.title,
+                        padding: EdgeInsets.only(top: 2.0 * SizeConfig.heightMultiplier),
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 2.0 * SizeConfig.widthMultiplier,
+                            vertical: 1 * SizeConfig.heightMultiplier,
+                          ),
+                          child: Text(
+                            Strings.IDeals,
+                            style: Theme.of(context).textTheme.title,
+                          ),
                         ),
                       ),
                       Expanded(
@@ -335,13 +326,23 @@ class PortraitCardState extends State<PortraitCard> {
                   color: AppTheme.selectedTabBackgroundColor,
                   onRatingChanged: (rating) => setState(() => this.rating = rating),
                 ),
-                Text(
-                  lessonName,
-                  style: Theme.of(context).textTheme.display1.copyWith(fontWeight: FontWeight.bold),
+                Padding(
+                  padding: EdgeInsets.only(top: 1.0 * SizeConfig.heightMultiplier),
+                  child: SizedBox(
+                    width: 115,
+                    child: Text(
+                      lessonName,
+                      style: TextStyle(fontSize: 15, fontWeight: FontWeight.normal),
+                      softWrap: true,
+                    ),
+                  ),
                 ),
-                Text(
-                  "$numberOfCourses Courses",
-                  style: Theme.of(context).textTheme.subtitle,
+                Padding(
+                  padding: EdgeInsets.only(top: 1.0 * SizeConfig.heightMultiplier),
+                  child: Text(
+                    "\$$numberOfCourses",
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+                  ),
                 ),
               ],
             ),
@@ -505,7 +506,7 @@ class TopContainerLandscape extends StatelessWidget {
                           horizontal: 1 * SizeConfig.heightMultiplier,
                         ),
                         child: Text(
-                          Strings.greetingMessage,
+                          Strings.boating,
                           style: Theme.of(context).textTheme.display1,
                         ),
                       ),
