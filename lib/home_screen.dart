@@ -4,7 +4,21 @@ import 'package:ui/setting/size_config.dart';
 import 'package:ui/setting/strings.dart';
 import 'package:ui/setting/styling.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget{
+
+  @override
+  State<StatefulWidget> createState() => HomeScreenState();
+}
+
+class HomeScreenState extends State<HomeScreen> {
+  int _cIndex = 0;
+
+  void _incrementTab(index) {
+    setState(() {
+      _cIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,13 +73,13 @@ class HomeScreen extends StatelessWidget {
                           child: Row(
                             children: <Widget>[
                               PortraitCard(
-                                rating: 4,
+                                rating: 2,
                                 imagePath: 'assets/graphic_designer.jpg',
                                 lessonName: Strings.graphicDesigner,
                                 numberOfCourses: "234",
                               ),
                               PortraitCard(
-                                rating: 3,
+                                rating: 3.5,
                                 imagePath: 'assets/swimming.jpg',
                                 lessonName: Strings.swimming,
                                 numberOfCourses: "34",
@@ -108,7 +122,7 @@ class HomeScreen extends StatelessWidget {
                           child: Row(
                             children: <Widget>[
                               PortraitCard(
-                                rating: 3,
+                                rating: 3.5,
                                 imagePath: 'assets/graphic_designer.jpg',
                                 lessonName: Strings.graphicDesigner,
                                 numberOfCourses: "234",
@@ -130,6 +144,55 @@ class HomeScreen extends StatelessWidget {
             )
         ),
       ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _cIndex,
+        type: BottomNavigationBarType.shifting,
+        items: [
+          BottomNavigationBarItem(
+              icon: Icon(Icons.home,color: Colors.grey[500]),
+              activeIcon: Icon(
+                Icons.home,
+                color: AppTheme.topBarBackgroundColor,
+              ),
+              title: new Text('Home', style: TextStyle(color: AppTheme.topBarBackgroundColor ),),
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.explore,color: Colors.grey[500]),
+              activeIcon: Icon(
+                Icons.explore,
+                color: AppTheme.topBarBackgroundColor,
+              ),
+              title: new Text('Search', style: TextStyle(color: AppTheme.topBarBackgroundColor ))
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.business_center,color: Colors.grey[500]),
+              activeIcon: Icon(
+                Icons.business_center,
+                color: AppTheme.topBarBackgroundColor,
+              ),
+              title: new Text('My Booking', style: TextStyle(color: AppTheme.topBarBackgroundColor ))
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.email,color: Colors.grey[500]),
+              activeIcon: Icon(
+                Icons.email,
+                color: AppTheme.topBarBackgroundColor,
+              ),
+              title: new Text('Connect', style: TextStyle(color: AppTheme.topBarBackgroundColor ))
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.person,color: Colors.grey[500]),
+              activeIcon: Icon(
+                Icons.person,
+                color: AppTheme.topBarBackgroundColor,
+              ),
+              title: new Text('Profile', style: TextStyle(color: AppTheme.topBarBackgroundColor ))
+          )
+        ],
+        onTap: (_cIndex){
+        _incrementTab(_cIndex);
+        }
+      ) ,
     );
   }
 }
@@ -183,11 +246,23 @@ class StarRating extends StatelessWidget {
   }
 }
 
-class PortraitCard extends StatelessWidget {
+
+
+class PortraitCard extends StatefulWidget{
   final String imagePath, lessonName, numberOfCourses;
   final double rating;
 
-  const PortraitCard({Key key, this.rating, this.imagePath, this.lessonName, this.numberOfCourses}) : super(key: key);
+  PortraitCard({Key key, this.rating, this.imagePath, this.lessonName, this.numberOfCourses}) : super(key: key);
+
+  @override
+  State<StatefulWidget> createState() => PortraitCardState(rating, imagePath, lessonName, numberOfCourses);
+}
+
+class PortraitCardState extends State<PortraitCard> {
+  final String imagePath, lessonName, numberOfCourses;
+  double rating;
+
+  PortraitCardState(this.rating, this.imagePath, this.lessonName, this.numberOfCourses);
 
   @override
   Widget build(BuildContext context) {
@@ -218,6 +293,7 @@ class PortraitCard extends StatelessWidget {
               children: <Widget>[
                 StarRating(
                   rating: rating,
+                  onRatingChanged: (rating) => setState(() => this.rating = rating),
                 ),
                 Text(
                   lessonName,
@@ -235,6 +311,8 @@ class PortraitCard extends StatelessWidget {
     );
   }
 }
+
+
 
 class TopContainerPortrait extends StatelessWidget {
   @override
