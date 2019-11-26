@@ -32,6 +32,20 @@ class AppState {
           lessonName: Strings.ParkPlazaWB,
           numberOfCourses: "55",
           recommended: false,
+        ),
+        Item(
+          rating: 3.5,
+          imagePath: 'assets/image3.png',
+          lessonName: Strings.BBHotelBerlin,
+          numberOfCourses: "34",
+          recommended: true,
+        ),
+        Item(
+          rating: 3,
+          imagePath: 'assets/image4.png',
+          lessonName: Strings.ParkPlazaWB,
+          numberOfCourses: "55",
+          recommended: false,
         )
       ]
   );

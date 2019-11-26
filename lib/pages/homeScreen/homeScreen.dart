@@ -29,7 +29,7 @@ class HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppTheme.appBackgroundColor,
+      backgroundColor: AppTheme.white,
       body: StoreConnector<AppState, ViewModel>(
           converter: (Store<AppState> store) => ViewModel.create(store),
           builder: (BuildContext context, ViewModel viewModel) {
@@ -102,9 +102,7 @@ class HomeScreenState extends State<HomeScreen> {
                               child: SingleChildScrollView(
                                 scrollDirection: Axis.horizontal,
                                 child: Row(
-                                  children: <Widget>[
-
-                                  ],
+                                  children: _buildList(viewModel.hostelsNearby)
                                 ),
                               ),
                             ),
@@ -193,7 +191,7 @@ class TopContainerPortrait extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.only(top: 2.5 * SizeConfig.heightMultiplier),
         decoration: BoxDecoration(
-          color: AppTheme.white,
+          color: AppTheme.appBackgroundColor,
         ),
         child: Column(
           mainAxisSize: MainAxisSize.max,
@@ -309,110 +307,116 @@ class TopContainerLandscape extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FractionallySizedBox(
-      heightFactor: 1,
+      heightFactor: 0.78,
       alignment: Alignment.topCenter,
       child: Container(
+        padding: EdgeInsets.only(top: 5 * SizeConfig.heightMultiplier),
         decoration: BoxDecoration(
-          borderRadius: const BorderRadius.vertical(
-            bottom: Radius.circular(24.0),
-          ),
-          color: AppTheme.topBarBackgroundColor,
+          color: Colors.red,
         ),
         child: Column(
+          mainAxisSize: MainAxisSize.max,
           children: <Widget>[
-            Expanded(
-              child: Padding(
-                padding: EdgeInsets.only(
-                  left: 2.0 * SizeConfig.heightMultiplier,
-                  right: 2.0 * SizeConfig.heightMultiplier,
-                  top: 1.0 * SizeConfig.heightMultiplier,
-                ),
-                child: Row(
-                  children: <Widget>[
-                    Expanded(
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 1 * SizeConfig.heightMultiplier,
-                        ),
-                        child: Text(
-                          Strings.boating,
-                          style: Theme.of(context).textTheme.display1,
+            Container(
+              padding: EdgeInsets.only(
+                top: 2.5 * SizeConfig.heightMultiplier,
+                left: 4 * SizeConfig.heightMultiplier,
+                right: 4 * SizeConfig.heightMultiplier,
+                bottom: 2.5 * SizeConfig.heightMultiplier,
+              ),
+              child: Row(
+                children: <Widget>[
+                  Expanded(
+                    flex: 7,
+                    child: Container(
+                      height: 6.5 * SizeConfig.heightMultiplier,
+                      padding: EdgeInsets.symmetric(horizontal: 2 * SizeConfig.heightMultiplier),
+                      decoration: BoxDecoration(
+                        color: Colors.blueGrey[100],
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(10),
                         ),
                       ),
-                    ),
-                    Expanded(
-                      flex: 2,
-                      child: Container(
-                        padding: EdgeInsets.symmetric(horizontal: 2 * SizeConfig.heightMultiplier),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(24),
-                          ),
-                        ),
-                        child: Row(
-                          children: <Widget>[
-                            Icon(
-                              Icons.search,
-                              size: 3 * SizeConfig.heightMultiplier,
-                            ),
-                            Expanded(
-                              child: Padding(
-                                padding: EdgeInsets.symmetric(
-                                  horizontal: 1 * SizeConfig.heightMultiplier,
+                      child: Row(
+                        children: <Widget>[
+                          Expanded(
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(
+                                horizontal: 1 * SizeConfig.heightMultiplier,
+                              ),
+                              child: TextField(
+                                decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                  hintText: Strings.searchHere,
                                 ),
-                                child: TextField(
-                                  decoration: InputDecoration(
-                                    border: InputBorder.none,
-                                    hintText: Strings.searchHere,
-                                  ),
-                                  style: Theme.of(context).textTheme.display2,
-                                ),
+                                style: Theme.of(context).textTheme.display2,
                               ),
                             ),
-                          ],
-                        ),
+                          ),
+                          Icon(
+                            Icons.search,
+                            size: 3 * SizeConfig.heightMultiplier,
+                          ),
+                        ],
                       ),
                     ),
-                    Spacer(),
-                    Icon(
-                      Icons.blur_on,
-                      size: 8 * SizeConfig.imageSizeMultiplier,
-                    )
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
-            Expanded(
-              child: Padding(
-                padding: EdgeInsets.only(left: 2.0 * SizeConfig.heightMultiplier, bottom: 1.5 * SizeConfig.heightMultiplier),
-                child: Row(
-                  children: <Widget>[
-                    Text(
-                      Strings.whatLearnToday,
-                      style: Theme.of(context).textTheme.title,
+            Row(
+              children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.only(
+                    left: 2 * SizeConfig.heightMultiplier,
+                    right: 1.5 * SizeConfig.heightMultiplier,
+                  ),
+                  child: Container(
+                    height: 5 * SizeConfig.heightMultiplier,
+                    padding: EdgeInsets.only(
+                        left: 2 * SizeConfig.heightMultiplier,
+                        right: 2 * SizeConfig.heightMultiplier,
+                        bottom: SizeConfig.heightMultiplier,
+                        top: SizeConfig.heightMultiplier
                     ),
-                    Spacer(),
-                    Container(
-                      width: 10 * SizeConfig.heightMultiplier,
-                      padding: EdgeInsets.symmetric(vertical: 1 * SizeConfig.heightMultiplier),
-                      decoration: BoxDecoration(
-                        color: Colors.black,
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(3.0 * SizeConfig.heightMultiplier),
-                          bottomLeft: Radius.circular(3.0 * SizeConfig.heightMultiplier),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(20),
                         ),
-                      ),
-                      child: Icon(
-                        Icons.settings,
-                        color: Colors.white,
-                        size: 6 * SizeConfig.imageSizeMultiplier,
-                      ),
+                        border: Border.all(color: AppTheme.topBarBackgroundColor)
                     ),
-                  ],
+                    child: Text("Dates", style: TextStyle(fontSize: 16, fontWeight: FontWeight.normal),),
+                  ),
                 ),
+                Padding(
+                  padding: EdgeInsets.only(
+                    right: 2 * SizeConfig.heightMultiplier,
+                  ),
+                  child: Container(
+                    height: 5 * SizeConfig.heightMultiplier,
+                    padding: EdgeInsets.only(
+                        left: 2 * SizeConfig.heightMultiplier,
+                        right: 2 * SizeConfig.heightMultiplier,
+                        bottom: SizeConfig.heightMultiplier,
+                        top: SizeConfig.heightMultiplier
+                    ),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(20),
+                        ),
+                        border: Border.all(color: AppTheme.topBarBackgroundColor)
+                    ),
+                    child: Text("Guests", style: TextStyle(fontSize: 16, fontWeight: FontWeight.normal),),
+                  ),
+                ),
+              ],
+            ),
+            Padding(
+              padding: EdgeInsets.only(
+                  top: 2.8 * SizeConfig.heightMultiplier
               ),
             ),
+            Divider(color: Colors.grey[300], thickness: 1, height: 1),
           ],
         ),
       ),
