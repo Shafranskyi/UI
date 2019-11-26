@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:ui/pages/home_screen.dart';
+import 'package:ui/pages/homeScreen/home_screen.dart';
 
 import 'package:ui/setting/styling.dart';
 import 'package:ui/setting/size_config.dart';
 
-//import 'package:ui/pages/spash_screen.dart';
+//import 'package:ui/pages/splashScreen/splash_screen.dart';
 
 void main() => runApp(MyApp());
 

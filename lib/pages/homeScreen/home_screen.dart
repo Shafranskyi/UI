@@ -193,6 +193,7 @@ class HomeScreenState extends State<HomeScreen> {
   }
 }
 
+
 typedef void RatingChangeCallback(double rating);
 
 class StarRating extends StatelessWidget {
@@ -244,7 +245,6 @@ class StarRating extends StatelessWidget {
     return new Row(children: new List.generate(starCount, (index) => buildStar(context, index)));
   }
 }
-
 
 
 class PortraitCard extends StatefulWidget{
@@ -386,7 +386,6 @@ class PortraitCardState extends State<PortraitCard> {
     );
   }
 }
-
 
 
 class TopContainerPortrait extends StatelessWidget {
