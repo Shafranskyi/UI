@@ -4,12 +4,12 @@ import 'package:ui/pages/homeScreen/starRating.dart';
 import 'package:ui/setting/sizeConfig.dart';
 import 'package:ui/setting/styling.dart';
 
-class Item extends StatefulWidget{
+class HomeItem extends StatefulWidget{
   final String imagePath, lessonName, numberOfCourses;
   final double rating;
   final bool recommended;
 
-  Item({Key key,
+  HomeItem({Key key,
     @required this.rating,
     @required this.imagePath,
     @required this.lessonName,
@@ -19,10 +19,10 @@ class Item extends StatefulWidget{
 
   @override
   State<StatefulWidget> createState() =>
-      ItemState(rating, imagePath, lessonName, numberOfCourses, recommended);
+      HomeItemState(rating, imagePath, lessonName, numberOfCourses, recommended);
 
-  Item copyWith({double rating, String imagePath, String lessonName, String numberOfCourses, String recommended}) {
-    return Item(
+  HomeItem copyWith({double rating, String imagePath, String lessonName, String numberOfCourses, String recommended}) {
+    return HomeItem(
       rating: rating ?? this.rating,
       imagePath: imagePath ?? this.imagePath,
       numberOfCourses: numberOfCourses ?? this.numberOfCourses,
@@ -31,7 +31,7 @@ class Item extends StatefulWidget{
     );
   }
 
-  Item.fromJson(Map json)
+  HomeItem.fromJson(Map json)
       : rating = json['rating'],
         imagePath = json['imagePath'],
         lessonName = json['lessonName'],
@@ -47,13 +47,13 @@ class Item extends StatefulWidget{
   };
 }
 
-class ItemState extends State<Item> {
+class HomeItemState extends State<HomeItem> {
   final String imagePath, lessonName, numberOfCourses;
   double rating = 0.0;
   bool like = false;
   bool recommended = false;
 
-  ItemState(this.rating, this.imagePath, this.lessonName, this.numberOfCourses, this.recommended);
+  HomeItemState(this.rating, this.imagePath, this.lessonName, this.numberOfCourses, this.recommended);
 
   bool pressFavorite(bool key) {
     return !key;
@@ -124,12 +124,6 @@ class ItemState extends State<Item> {
                                 Text("RECOMMENDED", style: TextStyle(fontSize: 11, color: AppTheme.white))
                               ],
                             ),
-//                            icon: new Icon(Icons.favorite_border, color: like ? Colors.red : Colors.white),
-//                            onPressed: () {
-//                              setState(() {
-//                                like = pressFavorite(like); //<--update alreadSaved
-//                              });
-//                            }
                           ),
                         ),
                       ),

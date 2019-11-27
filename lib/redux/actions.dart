@@ -1,7 +1,9 @@
-import './model.dart';
+import 'models/connectItem.dart';
+import 'models/homeItem.dart';
 
 class LoadedItemsAction {
-  final List<Item> hostelsNearby;
+  final List<HomeItem> hostelsNearby;
+  final List<ConnectItem> connects;
 
-  LoadedItemsAction(this.hostelsNearby);
+  LoadedItemsAction(this.hostelsNearby, this.connects);
 }

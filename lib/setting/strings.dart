@@ -15,13 +15,5 @@ cutting-edge skills.''';
   static const String IDeals = 'Inspirational Deals';
   static const String BBHotelBerlin = 'B&B Hotel Berlin Potsdamer Platz';
   static const String ParkPlazaWB = 'Park Plaza Wallstreet Berlin';
-
-  static const String whatLearnToday = 'What would you like to learn today?';
-  static const String lessons = 'Lessons';
-  static const String myClasses = 'My Classes';
-  static const String graphicDesigner = 'Graphic Designer';
-  static const String swimming = 'Swimming';
-  static const String cycling = 'Cycling';
-  static const String skiing = 'Skiing';
-  static const String boating = 'Boating';
+  static const String SearchConnect = 'Search';
 }

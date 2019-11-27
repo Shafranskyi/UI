@@ -1,4 +1,4 @@
-import 'package:ui/redux/model.dart';
+import 'package:ui/redux/models/homeItem.dart';
 import 'package:ui/redux/viewModel.dart';
 import 'package:ui/setting/responsiveWidget.dart';
 import 'package:ui/setting/sizeConfig.dart';
@@ -112,10 +112,10 @@ class HomeScreenState extends State<HomeScreen> {
   }
 }
 
-List<Widget> _buildList(List<Item> list) {
+List<Widget> _buildList(List<HomeItem> list) {
   List<Widget> items = []; // this will hold Rows according to available lines
   for (var line in list.toList()) {
-    items.add(Item(
+    items.add(HomeItem(
         lessonName: line.lessonName,
         recommended: line.recommended,
         numberOfCourses: line.numberOfCourses,
@@ -163,7 +163,7 @@ class TopContainerPortraitState extends State<TopContainerPortrait> {
                       height: 6.5 * SizeConfig.heightMultiplier,
                       padding: EdgeInsets.symmetric(horizontal: 2 * SizeConfig.heightMultiplier),
                       decoration: BoxDecoration(
-                        color: Colors.blueGrey[100],
+                        color: Colors.grey[200],
                         borderRadius: BorderRadius.all(
                           Radius.circular(10),
                         ),
@@ -297,7 +297,7 @@ class TopContainerLandscapeState extends State<TopContainerLandscape> {
                       height: 6.5 * SizeConfig.heightMultiplier,
                       padding: EdgeInsets.symmetric(horizontal: 2 * SizeConfig.heightMultiplier),
                       decoration: BoxDecoration(
-                        color: Colors.blueGrey[100],
+                        color: Colors.grey[200],
                         borderRadius: BorderRadius.all(
                           Radius.circular(10),
                         ),
