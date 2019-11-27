@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
-
-import 'package:ui/pages/homeScreen/homeScreen.dart';
 import 'package:ui/redux/appState.dart';
 import 'package:ui/redux/reducers.dart';
+import 'package:ui/router/router.dart';
 import 'package:ui/setting/styling.dart';
 import 'package:ui/setting/sizeConfig.dart';
 
@@ -45,7 +44,7 @@ class MyApp extends StatelessWidget {
                   debugShowCheckedModeBanner: false,
                   title: 'Learning Platform Application',
                   theme: AppTheme.lightTheme,
-                  home: HomeScreen(),
+                  home: Router(),
                 );
               },
             );

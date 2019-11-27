@@ -18,13 +18,6 @@ class HomeScreen extends StatefulWidget{
 }
 
 class HomeScreenState extends State<HomeScreen> {
-  int _cIndex = 0;
-
-  void _incrementTab(index) {
-    setState(() {
-      _cIndex = index;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -113,55 +106,6 @@ class HomeScreenState extends State<HomeScreen> {
                   )
               ),
             );
-          }
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-          currentIndex: _cIndex,
-          type: BottomNavigationBarType.shifting,
-          items: [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home,color: Colors.grey[500]),
-              activeIcon: Icon(
-                Icons.home,
-                color: AppTheme.selectedTabBackgroundColor,
-              ),
-              title: new Text('Home', style: TextStyle(color: AppTheme.selectedTabBackgroundColor ),),
-            ),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.explore,color: Colors.grey[500]),
-                activeIcon: Icon(
-                  Icons.explore,
-                  color: AppTheme.selectedTabBackgroundColor,
-                ),
-                title: new Text('Search', style: TextStyle(color: AppTheme.selectedTabBackgroundColor ))
-            ),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.business_center,color: Colors.grey[500]),
-                activeIcon: Icon(
-                  Icons.business_center,
-                  color: AppTheme.selectedTabBackgroundColor,
-                ),
-                title: new Text('My Booking', style: TextStyle(color: AppTheme.selectedTabBackgroundColor ))
-            ),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.email,color: Colors.grey[500]),
-                activeIcon: Icon(
-                  Icons.email,
-                  color: AppTheme.selectedTabBackgroundColor,
-                ),
-                title: new Text('Connect', style: TextStyle(color: AppTheme.selectedTabBackgroundColor ))
-            ),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.person,color: Colors.grey[500]),
-                activeIcon: Icon(
-                  Icons.person,
-                  color: AppTheme.selectedTabBackgroundColor,
-                ),
-                title: new Text('Profile', style: TextStyle(color: AppTheme.selectedTabBackgroundColor ))
-            )
-          ],
-          onTap: (_cIndex){
-            _incrementTab(_cIndex);
           }
       ),
     );
