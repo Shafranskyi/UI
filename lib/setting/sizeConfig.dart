@@ -15,8 +15,6 @@ class SizeConfig {
   static bool isMobilePortrait = false;
 
   void init(BoxConstraints constraints, Orientation orientation) {
-    print('fdgdfg');
-
     if (orientation == Orientation.portrait) {
       _screenWidth = constraints.maxWidth;
       _screenHeight = constraints.maxHeight;
@@ -24,8 +22,8 @@ class SizeConfig {
       isMobilePortrait = true;
     }
     if (orientation == Orientation.landscape) {
-      _screenWidth = constraints.maxWidth;
-      _screenHeight = constraints.maxHeight;
+      _screenWidth = constraints.maxHeight;
+      _screenHeight = constraints.maxWidth;
       isPortrait = false;
       isMobilePortrait = false;
     }
@@ -38,5 +36,7 @@ class SizeConfig {
     heightMultiplier = _blockHeight;
     widthMultiplier = _blockWidth;
 
+    print("{$_screenWidth}");
+    print("{$_screenHeight}");
   }
 }

@@ -182,7 +182,15 @@ List<Widget> _buildList(List<Item> list) {
   return items;
 }
 
-class TopContainerPortrait extends StatelessWidget {
+
+class TopContainerPortrait extends StatefulWidget{
+
+  @override
+  State<StatefulWidget> createState() => TopContainerPortraitState();
+}
+
+class TopContainerPortraitState extends State<TopContainerPortrait> {
+
   @override
   Widget build(BuildContext context) {
     return FractionallySizedBox(
@@ -191,7 +199,7 @@ class TopContainerPortrait extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.only(top: 2.5 * SizeConfig.heightMultiplier),
         decoration: BoxDecoration(
-          color: AppTheme.appBackgroundColor,
+          color: AppTheme.white,
         ),
         child: Column(
           mainAxisSize: MainAxisSize.max,
@@ -303,16 +311,29 @@ class TopContainerPortrait extends StatelessWidget {
   }
 }
 
-class TopContainerLandscape extends StatelessWidget {
+
+class TopContainerLandscape extends StatefulWidget{
+
+  @override
+  State<StatefulWidget> createState() => TopContainerLandscapeState();
+}
+
+class TopContainerLandscapeState extends State<TopContainerLandscape> {
+  double heightElement = 5.0;
+
   @override
   Widget build(BuildContext context) {
+    if(SizeConfig.widthMultiplier * 100 > 450){
+      heightElement = 4;
+    }
+
     return FractionallySizedBox(
-      heightFactor: 0.78,
+      heightFactor: 0.892,
       alignment: Alignment.topCenter,
       child: Container(
-        padding: EdgeInsets.only(top: 5 * SizeConfig.heightMultiplier),
+        padding: EdgeInsets.only(top: 2 * SizeConfig.heightMultiplier),
         decoration: BoxDecoration(
-          color: Colors.red,
+          color: AppTheme.white,
         ),
         child: Column(
           mainAxisSize: MainAxisSize.max,
@@ -372,7 +393,7 @@ class TopContainerLandscape extends StatelessWidget {
                     right: 1.5 * SizeConfig.heightMultiplier,
                   ),
                   child: Container(
-                    height: 5 * SizeConfig.heightMultiplier,
+                    height: heightElement * SizeConfig.heightMultiplier,
                     padding: EdgeInsets.only(
                         left: 2 * SizeConfig.heightMultiplier,
                         right: 2 * SizeConfig.heightMultiplier,
@@ -393,7 +414,7 @@ class TopContainerLandscape extends StatelessWidget {
                     right: 2 * SizeConfig.heightMultiplier,
                   ),
                   child: Container(
-                    height: 5 * SizeConfig.heightMultiplier,
+                    height: heightElement * SizeConfig.heightMultiplier,
                     padding: EdgeInsets.only(
                         left: 2 * SizeConfig.heightMultiplier,
                         right: 2 * SizeConfig.heightMultiplier,
