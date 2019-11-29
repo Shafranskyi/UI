@@ -202,7 +202,7 @@ class TopContainerLandscapeState extends State<TopContainerLandscape> {
       child: Container(
         padding: EdgeInsets.only(top: 6.0 * SizeConfig.heightMultiplier),
         decoration: BoxDecoration(
-          color: AppTheme.selectedTabBackgroundColor,
+          color: AppTheme.white,
         ),
         child: Column(
           children: <Widget>[

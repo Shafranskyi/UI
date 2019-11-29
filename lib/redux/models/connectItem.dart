@@ -172,7 +172,7 @@ class ConnectItemState extends State<ConnectItem> {
 
     double widthItem = 100 * SizeConfig.widthMultiplier;
 
-    if(MediaQuery.of(context).orientation == Orientation.portrait)
+    if(MediaQuery.of(context).orientation == Orientation.landscape)
       widthItem = 100 * SizeConfig.heightMultiplier;
 
     return Container(

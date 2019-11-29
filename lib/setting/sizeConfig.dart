@@ -11,18 +11,15 @@ class SizeConfig {
   static double imageSizeMultiplier;
   static double heightMultiplier;
   static double widthMultiplier;
-  static bool isMobilePortrait = false;
 
   void init(BoxConstraints constraints, Orientation orientation) {
     if (orientation == Orientation.portrait) {
       _screenWidth = constraints.maxWidth;
       _screenHeight = constraints.maxHeight;
-      isMobilePortrait = true;
     }
     if (orientation == Orientation.landscape) {
       _screenWidth = constraints.maxHeight;
       _screenHeight = constraints.maxWidth;
-      isMobilePortrait = false;
     }
 
     _blockWidth = _screenWidth / 100;
