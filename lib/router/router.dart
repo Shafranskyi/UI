@@ -1,5 +1,6 @@
 import 'package:ui/pages/connectScreen/connectScreen.dart';
 import 'package:ui/pages/homeScreen/homeScreen.dart';
+import 'package:ui/pages/myBookingScreen/myBookingScreen.dart';
 import 'package:ui/setting/styling.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +17,7 @@ class RouterState extends State<Router> {
   final List<Widget> _children = [
     HomeScreen(),
     ConnectScreen(),
-    HomeScreen(),
+    MyBookingScreen(),
     ConnectScreen(),
     HomeScreen(),
   ];

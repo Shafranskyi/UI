@@ -12,6 +12,8 @@ import 'package:flutter_redux/flutter_redux.dart';
 
 class HomeScreen extends StatefulWidget{
 
+  const HomeScreen({ Key key }) : super(key: key);
+
   @override
   State<StatefulWidget> createState() => HomeScreenState();
 
@@ -36,13 +38,7 @@ class HomeScreenState extends State<HomeScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Container(
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.vertical(
-                            bottom: Radius.circular(3.0 * SizeConfig.heightMultiplier),
-                          ),
-                        ),
-                        constraints: BoxConstraints(maxHeight: 40 * (SizeConfig.isMobilePortrait ? SizeConfig.heightMultiplier : SizeConfig.widthMultiplier)),
+                        constraints: BoxConstraints(maxHeight: 40 * ( MediaQuery.of(context).orientation == Orientation.portrait ? SizeConfig.heightMultiplier : SizeConfig.widthMultiplier)),
                         child: Stack(
                           children: <Widget>[
                             ResponsiveWidget(
@@ -134,9 +130,11 @@ class TopContainerPortrait extends StatefulWidget{
 }
 
 class TopContainerPortraitState extends State<TopContainerPortrait> {
-
   @override
   Widget build(BuildContext context) {
+
+    print('home portrait');
+
     return FractionallySizedBox(
       heightFactor: 0.55,
       alignment: Alignment.topCenter,
@@ -270,6 +268,9 @@ class TopContainerLandscapeState extends State<TopContainerLandscape> {
     if(SizeConfig.widthMultiplier * 100 > 450){
       heightElement = 4;
     }
+
+
+    print('home landscape');
 
     return FractionallySizedBox(
       heightFactor: 0.892,

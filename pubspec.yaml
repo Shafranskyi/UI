@@ -29,6 +29,8 @@ dependencies:
   flutter_redux_dev_tools: ^0.3.0
   redux_thunk: ^0.2.0
 
+  bubble_tab_indicator: ^0.1.4
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

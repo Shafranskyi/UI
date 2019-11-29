@@ -11,20 +11,17 @@ class SizeConfig {
   static double imageSizeMultiplier;
   static double heightMultiplier;
   static double widthMultiplier;
-  static bool isPortrait = true;
   static bool isMobilePortrait = false;
 
   void init(BoxConstraints constraints, Orientation orientation) {
     if (orientation == Orientation.portrait) {
       _screenWidth = constraints.maxWidth;
       _screenHeight = constraints.maxHeight;
-      isPortrait = true;
       isMobilePortrait = true;
     }
     if (orientation == Orientation.landscape) {
       _screenWidth = constraints.maxHeight;
       _screenHeight = constraints.maxWidth;
-      isPortrait = false;
       isMobilePortrait = false;
     }
 

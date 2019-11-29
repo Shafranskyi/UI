@@ -36,13 +36,7 @@ class ConnectScreenState extends State<ConnectScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Container(
-                        decoration: BoxDecoration(
-                          color: Colors.green,
-                          borderRadius: BorderRadius.vertical(
-                            bottom: Radius.circular(3.0 * SizeConfig.heightMultiplier),
-                          ),
-                        ),
-                        constraints: BoxConstraints(maxHeight: 40 * (SizeConfig.isMobilePortrait ? SizeConfig.heightMultiplier : SizeConfig.widthMultiplier)),
+                        constraints: BoxConstraints(maxHeight: 40 * (MediaQuery.of(context).orientation == Orientation.portrait ? SizeConfig.heightMultiplier : SizeConfig.widthMultiplier)),
                         child: Stack(
                           children: <Widget>[
                             ResponsiveWidget(
@@ -208,7 +202,7 @@ class TopContainerLandscapeState extends State<TopContainerLandscape> {
       child: Container(
         padding: EdgeInsets.only(top: 6.0 * SizeConfig.heightMultiplier),
         decoration: BoxDecoration(
-          color: AppTheme.white,
+          color: AppTheme.selectedTabBackgroundColor,
         ),
         child: Column(
           children: <Widget>[
