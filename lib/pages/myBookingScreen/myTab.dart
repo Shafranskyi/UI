@@ -21,11 +21,9 @@ class MyTabState extends State<MyTab>{
   Widget build(BuildContext context) {
 
     if(MediaQuery.of(context).orientation == Orientation.portrait)
-      width = 20.5;
+      width = 21.7;
     else
       width = 42.5;
-
-    print('{$width}');
 
     return Container(
       child: Align(

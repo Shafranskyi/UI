@@ -1,8 +1,9 @@
 import 'package:ui/pages/myBookingScreen/bubbleTabIndicator.dart';
-import 'package:ui/redux/models/connectItem.dart';
+import 'package:ui/redux/models/myBookingItem.dart';
 import 'package:ui/redux/viewModel.dart';
 import 'package:ui/setting/responsiveWidget.dart';
 import 'package:ui/setting/sizeConfig.dart';
+import 'package:ui/setting/strings.dart';
 import 'package:ui/setting/styling.dart';
 import 'package:ui/redux/appState.dart';
 
@@ -62,7 +63,13 @@ class MyBookingScreenState extends State<MyBookingScreen> {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
-
+                                  MyBookingItem(
+                                    name: Strings.ParkPlazaWB,
+                                    lastTime: '12.09.19',
+                                    location: Strings.MyBookingLocation,
+                                    lastMessage: 'Do you want to have coffee tonight?',
+                                    imagePath: 'assets/image5.png',
+                                  )
                                 ], //_buildList(viewModel.connects)
                               ),
                             ),
@@ -80,12 +87,11 @@ class MyBookingScreenState extends State<MyBookingScreen> {
   }
 }
 
-List<Widget> _buildList(List<ConnectItem> list) {
+List<Widget> _buildList(List<MyBookingItem> list) {
   List<Widget> items = []; // this will hold Rows according to available lines
   for (var line in list.toList()) {
-    items.add(ConnectItem(
+    items.add(MyBookingItem(
       imagePath: line.imagePath,
-      countMessages: line.countMessages,
       lastMessage: line.lastMessage,
       lastTime: line.lastTime,
       location: line.location,
@@ -113,7 +119,7 @@ class TopContainerPortraitState extends State<TopContainerPortrait> {
   @override
   Widget build(BuildContext context) {
     return FractionallySizedBox(
-      heightFactor: 0.65,
+      heightFactor: 0.633,
       alignment: Alignment.topCenter,
       child: Container(
         padding: EdgeInsets.only(top: 6.0 * SizeConfig.heightMultiplier),
@@ -138,9 +144,9 @@ class TopContainerPortraitState extends State<TopContainerPortrait> {
             Container(
               padding: EdgeInsets.only(
                 top: 3.6 * SizeConfig.heightMultiplier,
-                left: 4 * SizeConfig.heightMultiplier,
-                right: 4 * SizeConfig.heightMultiplier,
-                bottom: 3.6 * SizeConfig.heightMultiplier,
+                left: 3 * SizeConfig.heightMultiplier,
+                right: 3 * SizeConfig.heightMultiplier,
+                bottom: 3 * SizeConfig.heightMultiplier,
               ),
               child: Row(
                 children: <Widget>[

@@ -14,6 +14,7 @@ cutting-edge skills.''';
   static const String HostelsNearby = 'Hostels Nearby';
   static const String IDeals = 'Inspirational Deals';
   static const String BBHotelBerlin = 'B&B Hotel Berlin Potsdamer Platz';
-  static const String ParkPlazaWB = 'Park Plaza Wallstreet Berlin';
+  static const String ParkPlazaWB = 'Park Plaza Wallstreet Berlin Mitte Mittenevich';
   static const String SearchConnect = 'Search';
+  static const String MyBookingLocation = 'Orlando, 34747, United States of America';
 }
