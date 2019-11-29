@@ -87,22 +87,22 @@ class MyBookingScreenState extends State<MyBookingScreen> {
   }
 }
 
-List<Widget> _buildList(List<MyBookingItem> list) {
-  List<Widget> items = []; // this will hold Rows according to available lines
-  for (var line in list.toList()) {
-    items.add(MyBookingItem(
-      imagePath: line.imagePath,
-      lastMessage: line.lastMessage,
-      lastTime: line.lastTime,
-      location: line.location,
-      name: line.name,
-    ));
-    items.add(
-      Divider(color: Colors.grey[300], thickness: 1, height: 1),
-    );
-  }
-  return items;
-}
+//List<Widget> _buildList(List<MyBookingItem> list) {
+//  List<Widget> items = []; // this will hold Rows according to available lines
+//  for (var line in list.toList()) {
+//    items.add(MyBookingItem(
+//      imagePath: line.imagePath,
+//      lastMessage: line.lastMessage,
+//      lastTime: line.lastTime,
+//      location: line.location,
+//      name: line.name,
+//    ));
+//    items.add(
+//      Divider(color: Colors.grey[300], thickness: 1, height: 1),
+//    );
+//  }
+//  return items;
+//}
 
 
 class TopContainerPortrait extends StatefulWidget{

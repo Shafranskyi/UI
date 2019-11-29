@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ui/pages/myBookingScreen/modalWindow.dart';
 
 import 'package:ui/setting/sizeConfig.dart';
 import 'package:ui/setting/styling.dart';
@@ -47,11 +48,25 @@ class MyBookingItem extends StatefulWidget {
 
 class MyBookingItemState extends State<MyBookingItem> {
   final String imagePath, name, lastTime, lastMessage, location;
+  Modal modal = new Modal();
 
   MyBookingItemState(this.lastTime, this.imagePath, this.location, this.lastMessage, this.name,);
 
   @override
   Widget build(BuildContext context) {
+
+    double widthItem = 100 * SizeConfig.widthMultiplier;
+    double widthNameAndLocationContainers = 50.0 * SizeConfig.widthMultiplier;
+    double widthCheckContainers = 35 * SizeConfig.widthMultiplier;
+
+    if(MediaQuery.of(context).orientation == Orientation.landscape) {
+      print('landscape');
+      widthItem = 100 * SizeConfig.heightMultiplier;
+      widthNameAndLocationContainers = 70 * SizeConfig.heightMultiplier;
+      widthCheckContainers = 36 * SizeConfig.heightMultiplier;
+    }
+
+    print('${widthCheckContainers == 18 * SizeConfig.heightMultiplier}');
 
     final leftSection = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -93,21 +108,34 @@ class MyBookingItemState extends State<MyBookingItem> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Container(
-              height: 8 * SizeConfig.heightMultiplier,
-              width: 50 * SizeConfig.widthMultiplier,
-              child: Text(
-                name,
-                style: TextStyle(color: Colors.black,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16.0,
+            Row(
+              children: <Widget>[
+                Container(
+                  height: 8 * SizeConfig.heightMultiplier,
+                  width: widthNameAndLocationContainers,
+                  child: Text(
+                    name,
+                    style: TextStyle(color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16.0,
+                    ),
+                    overflow: TextOverflow.clip,
+                  ),
                 ),
-                overflow: TextOverflow.clip,
-              ),
+                Container(
+                  alignment: Alignment.topRight,
+                  width: 20 * SizeConfig.widthMultiplier,
+                  height: 8 * SizeConfig.heightMultiplier,
+                  child: IconButton(
+                    icon: Icon(Icons.menu),
+                    onPressed: () => modal.mainBottomSheet(context),
+                  ),
+                )
+              ],
             ),
             Container(
               height: 7 * SizeConfig.heightMultiplier,
-              width: 50 * SizeConfig.widthMultiplier,
+              width: widthNameAndLocationContainers,
               child: Text(
                   location,
                   style: TextStyle(color: Colors.grey,
@@ -117,11 +145,11 @@ class MyBookingItemState extends State<MyBookingItem> {
             ),
             Container(
                 height: 7 * SizeConfig.heightMultiplier,
-                width: 71 * SizeConfig.widthMultiplier,
+                width: widthCheckContainers * 2.0,
                 child: Row(
                   children: <Widget>[
                     Container(
-                        width: 35 * SizeConfig.widthMultiplier,
+                        width: widthCheckContainers,
                         height: 7 * SizeConfig.heightMultiplier,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -156,7 +184,7 @@ class MyBookingItemState extends State<MyBookingItem> {
                         )
                     ),
                     Container(
-                      width: 35 * SizeConfig.widthMultiplier,
+                      width: widthCheckContainers,
                       height: 7 * SizeConfig.heightMultiplier,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -197,11 +225,6 @@ class MyBookingItemState extends State<MyBookingItem> {
         ),
       ),
     );
-
-    double widthItem = 100 * SizeConfig.widthMultiplier;
-
-    if(MediaQuery.of(context).orientation == Orientation.landscape)
-      widthItem = 100 * SizeConfig.heightMultiplier;
 
     return Container(
       height: 28 * SizeConfig.heightMultiplier,
