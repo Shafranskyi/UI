@@ -114,10 +114,20 @@ class TopContainerPortrait extends StatefulWidget{
 }
 
 class TopContainerPortraitState extends State<TopContainerPortrait> {
-  TopContainerPortraitState();
 
   @override
   Widget build(BuildContext context) {
+    double radius = 25;
+
+    if(SizeConfig.widthMultiplier * 100 > 450){
+      radius = 35;
+      if(MediaQuery.of(context).orientation == Orientation.landscape)
+        radius = 20;
+    }
+    else{
+      radius = 25;
+    }
+
     return FractionallySizedBox(
       heightFactor: 0.633,
       alignment: Alignment.topCenter,
@@ -155,7 +165,7 @@ class TopContainerPortraitState extends State<TopContainerPortrait> {
                       height: 7 * SizeConfig.heightMultiplier,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.all(
-                            Radius.circular(25),
+                            Radius.circular(radius),
                           ),
                           border: Border.all(color: Colors.grey[300])
                       ),
@@ -187,7 +197,7 @@ class TopContainerLandscape extends StatefulWidget{
 }
 
 class TopContainerLandscapeState extends State<TopContainerLandscape> {
-  TopContainerLandscapeState();
+  double heightElement = 5.0;
 
   @override
   Widget build(BuildContext context) {

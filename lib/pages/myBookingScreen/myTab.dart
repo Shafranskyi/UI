@@ -13,17 +13,29 @@ class MyTab extends StatefulWidget{
 
 class MyTabState extends State<MyTab>{
   final String title;
-  double width = 20.5;
 
   MyTabState(this.title);
 
   @override
   Widget build(BuildContext context) {
+    double width = 21.7;
 
-    if(MediaQuery.of(context).orientation == Orientation.portrait)
+
+    if(MediaQuery.of(context).size.shortestSide > 600){
+      width = 24.4;
+      if(MediaQuery.of(context).orientation == Orientation.landscape) {
+        width = 47.3;
+      }
+    }
+    else{
       width = 21.7;
-    else
-      width = 42.5;
+      if(MediaQuery.of(context).orientation == Orientation.landscape) {
+        width = 42.5;
+      }
+    }
+
+
+
 
     return Container(
       child: Align(

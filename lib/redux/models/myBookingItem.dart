@@ -60,13 +60,11 @@ class MyBookingItemState extends State<MyBookingItem> {
     double widthCheckContainers = 35 * SizeConfig.widthMultiplier;
 
     if(MediaQuery.of(context).orientation == Orientation.landscape) {
-      print('landscape');
       widthItem = 100 * SizeConfig.heightMultiplier;
       widthNameAndLocationContainers = 70 * SizeConfig.heightMultiplier;
       widthCheckContainers = 36 * SizeConfig.heightMultiplier;
     }
 
-    print('${widthCheckContainers == 18 * SizeConfig.heightMultiplier}');
 
     final leftSection = Column(
       crossAxisAlignment: CrossAxisAlignment.start,

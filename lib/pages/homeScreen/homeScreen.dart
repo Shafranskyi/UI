@@ -20,7 +20,6 @@ class HomeScreen extends StatefulWidget{
 }
 
 class HomeScreenState extends State<HomeScreen> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -132,9 +131,6 @@ class TopContainerPortrait extends StatefulWidget{
 class TopContainerPortraitState extends State<TopContainerPortrait> {
   @override
   Widget build(BuildContext context) {
-
-    print('home portrait');
-
     return FractionallySizedBox(
       heightFactor: 0.55,
       alignment: Alignment.topCenter,
@@ -268,9 +264,6 @@ class TopContainerLandscapeState extends State<TopContainerLandscape> {
     if(SizeConfig.widthMultiplier * 100 > 450){
       heightElement = 4;
     }
-
-
-    print('home landscape');
 
     return FractionallySizedBox(
       heightFactor: 0.892,
