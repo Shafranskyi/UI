@@ -15,38 +15,39 @@ class AppState {
 
   AppState.initialState() :
         hostelsNearby = List.unmodifiable( <HomeItem>[
-          HomeItem(rating: 2,
+          HomeItem(
+              rating: 2,
               imagePath: 'assets/image2.png',
-              lessonName: Strings.LisbonSA,
-              numberOfCourses: "234",
+              name: Strings.LisbonSA,
+              price: "234",
               recommended: false
           ),
           HomeItem(
             rating: 3.5,
             imagePath: 'assets/image3.png',
-            lessonName: Strings.BBHotelBerlin,
-            numberOfCourses: "34",
+            name: Strings.BBHotelBerlin,
+            price: "34",
             recommended: true,
           ),
           HomeItem(
             rating: 3,
             imagePath: 'assets/image4.png',
-            lessonName: Strings.ParkPlazaWB,
-            numberOfCourses: "55",
+            name: Strings.ParkPlazaWB,
+            price: "55",
             recommended: false,
           ),
           HomeItem(
             rating: 3.5,
             imagePath: 'assets/image3.png',
-            lessonName: Strings.BBHotelBerlin,
-            numberOfCourses: "34",
+            name: Strings.BBHotelBerlin,
+            price: "34",
             recommended: true,
           ),
           HomeItem(
             rating: 3,
             imagePath: 'assets/image4.png',
-            lessonName: Strings.ParkPlazaWB,
-            numberOfCourses: "55",
+            name: Strings.ParkPlazaWB,
+            price: "55",
             recommended: false,
           )
         ]

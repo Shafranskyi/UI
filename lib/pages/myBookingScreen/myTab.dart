@@ -20,7 +20,6 @@ class MyTabState extends State<MyTab>{
   Widget build(BuildContext context) {
     double width = 21.7;
 
-
     if(ResponsiveSize.phonePort){
       width = 22.0;
     }
@@ -33,7 +32,6 @@ class MyTabState extends State<MyTab>{
     else if(ResponsiveSize.tabLand){
       width = 47.0;
     }
-
 
     return Container(
       child: Align(

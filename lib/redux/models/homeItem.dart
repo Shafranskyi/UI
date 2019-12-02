@@ -5,55 +5,55 @@ import 'package:ui/setting/responsiveSize.dart';
 import 'package:ui/setting/styling.dart';
 
 class HomeItem extends StatefulWidget{
-  final String imagePath, lessonName, numberOfCourses;
+  final String imagePath, name, price;
   final double rating;
   final bool recommended;
 
   HomeItem({Key key,
     @required this.rating,
     @required this.imagePath,
-    @required this.lessonName,
-    @required this.numberOfCourses,
+    @required this.name,
+    @required this.price,
     @required this.recommended
   }) : super(key: key);
 
   @override
   State<StatefulWidget> createState() =>
-      HomeItemState(rating, imagePath, lessonName, numberOfCourses, recommended);
+      HomeItemState(rating, imagePath, name, price, recommended);
 
-  HomeItem copyWith({double rating, String imagePath, String lessonName, String numberOfCourses, String recommended}) {
+  HomeItem copyWith({double rating, String imagePath, String name, String price, String recommended}) {
     return HomeItem(
       rating: rating ?? this.rating,
       imagePath: imagePath ?? this.imagePath,
-      numberOfCourses: numberOfCourses ?? this.numberOfCourses,
+      price: price ?? this.price,
       recommended: recommended ?? this.recommended,
-      lessonName: lessonName ?? this.lessonName,
+      name: name ?? this.name,
     );
   }
 
   HomeItem.fromJson(Map json)
       : rating = json['rating'],
         imagePath = json['imagePath'],
-        lessonName = json['lessonName'],
-        numberOfCourses = json['numberOfCourses'],
+        name = json['name'],
+        price = json['price'],
         recommended = json['recommended'];
 
   Map toJson() => {
     'imagePath' : imagePath,
-    'lessonName' : lessonName,
-    'numberOfCourses' : numberOfCourses,
+    'name' : name,
+    'price' : price,
     'recommended' : recommended,
     'rating' : rating
   };
 }
 
 class HomeItemState extends State<HomeItem> {
-  final String imagePath, lessonName, numberOfCourses;
+  final String imagePath, name, price;
   double rating = 0.0;
   bool like = false;
   bool recommended = false;
 
-  HomeItemState(this.rating, this.imagePath, this.lessonName, this.numberOfCourses, this.recommended);
+  HomeItemState(this.rating, this.imagePath, this.name, this.price, this.recommended);
 
   bool pressFavorite(bool key) {
     return !key;
@@ -61,6 +61,13 @@ class HomeItemState extends State<HomeItem> {
 
   @override
   Widget build(BuildContext context) {
+    TextOverflow overflow;
+
+    if(name.length > 20)
+      overflow = TextOverflow.ellipsis;
+    else
+      overflow = TextOverflow.fade;
+
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 3 * ResponsiveSize.width),
       child: Column(
@@ -98,7 +105,7 @@ class HomeItemState extends State<HomeItem> {
                             icon: new Icon(Icons.favorite_border, color: like ? Colors.red : Colors.white),
                             onPressed: () {
                               setState(() {
-                                like = pressFavorite(like); //<--update alreadSaved
+                                like = pressFavorite(like);
                               });
                             }
                         ),
@@ -146,18 +153,19 @@ class HomeItemState extends State<HomeItem> {
                 Padding(
                   padding: EdgeInsets.only(top: 1.0 * ResponsiveSize.height),
                   child: SizedBox(
-                    width: 115,
+                    width: 33 * ResponsiveSize.width,
                     child: Text(
-                      lessonName,
+                      name,
                       style: TextStyle(fontSize: 15, fontWeight: FontWeight.normal),
                       softWrap: true,
+                      overflow: overflow,
                     ),
                   ),
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: 1.0 * ResponsiveSize.height),
                   child: Text(
-                    "\$$numberOfCourses",
+                    "\$$price",
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
                   ),
                 ),

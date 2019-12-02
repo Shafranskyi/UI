@@ -111,9 +111,9 @@ List<Widget> _buildList(List<HomeItem> list) {
   List<Widget> items = []; // this will hold Rows according to available lines
   for (var line in list.toList()) {
     items.add(HomeItem(
-        lessonName: line.lessonName,
+        name: line.name,
         recommended: line.recommended,
-        numberOfCourses: line.numberOfCourses,
+        price: line.price,
         rating: line.rating,
         imagePath: line.imagePath
     ));
