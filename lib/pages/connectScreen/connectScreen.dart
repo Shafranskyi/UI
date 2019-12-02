@@ -1,7 +1,7 @@
 import 'package:ui/redux/models/connectItem.dart';
 import 'package:ui/redux/viewModel.dart';
+import 'package:ui/setting/responsiveSize.dart';
 import 'package:ui/setting/responsiveWidget.dart';
-import 'package:ui/setting/sizeConfig.dart';
 import 'package:ui/setting/strings.dart';
 import 'package:ui/setting/styling.dart';
 import 'package:ui/redux/appState.dart';
@@ -36,7 +36,7 @@ class ConnectScreenState extends State<ConnectScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Container(
-                        constraints: BoxConstraints(maxHeight: 40 * (MediaQuery.of(context).orientation == Orientation.portrait ? SizeConfig.heightMultiplier : SizeConfig.widthMultiplier)),
+                        constraints: BoxConstraints(maxHeight: 40 * (MediaQuery.of(context).orientation == Orientation.portrait ? ResponsiveSize.height : ResponsiveSize.width)),
                         child: Stack(
                           children: <Widget>[
                             ResponsiveWidget(
@@ -47,7 +47,7 @@ class ConnectScreenState extends State<ConnectScreen> {
                         ),
                       ),
                       Container(
-                        constraints: BoxConstraints(maxHeight: 88 * SizeConfig.heightMultiplier),
+                        constraints: BoxConstraints(maxHeight: 88 * ResponsiveSize.height),
                         decoration: BoxDecoration(
                           color: AppTheme.white,
                         ),
@@ -109,7 +109,7 @@ class TopContainerPortraitState extends State<TopContainerPortrait> {
       heightFactor: 0.54,
       alignment: Alignment.topCenter,
       child: Container(
-        padding: EdgeInsets.only(top: 6.0 * SizeConfig.heightMultiplier),
+        padding: EdgeInsets.only(top: 6.0 * ResponsiveSize.height),
         decoration: BoxDecoration(
           color: AppTheme.white,
         ),
@@ -122,31 +122,31 @@ class TopContainerPortraitState extends State<TopContainerPortrait> {
                 ),
                 Container(
                   alignment: Alignment.centerRight,
-                  padding: EdgeInsets.only(right: 3 * SizeConfig.widthMultiplier),
+                  padding: EdgeInsets.only(right: 3 * ResponsiveSize.width),
                   child: Text('Blocked', style: TextStyle(fontSize: 17, color: Colors.grey, fontWeight: FontWeight.normal)),
                 )
               ],
             ),
             Padding(
               padding: EdgeInsets.only(
-                  top: 2.5 * SizeConfig.heightMultiplier
+                  top: 2.5 * ResponsiveSize.height
               ),
             ),
             Divider(color: Colors.grey[300], thickness: 1, height: 1),
             Container(
               padding: EdgeInsets.only(
-                top: 2.3 * SizeConfig.heightMultiplier,
-                left: 4 * SizeConfig.heightMultiplier,
-                right: 4 * SizeConfig.heightMultiplier,
-                bottom: 2.3 * SizeConfig.heightMultiplier,
+                top: 2.3 * ResponsiveSize.height,
+                left: 4 * ResponsiveSize.height,
+                right: 4 * ResponsiveSize.height,
+                bottom: 2.3 * ResponsiveSize.height,
               ),
               child: Row(
                 children: <Widget>[
                   Expanded(
                     flex: 7,
                     child: Container(
-                      height: 5.2 * SizeConfig.heightMultiplier,
-                      padding: EdgeInsets.symmetric(horizontal: 2 * SizeConfig.heightMultiplier),
+                      height: 5.2 * ResponsiveSize.height,
+                      padding: EdgeInsets.symmetric(horizontal: 2 * ResponsiveSize.height),
                       decoration: BoxDecoration(
                         color: Colors.grey[200],
                         borderRadius: BorderRadius.all(
@@ -162,7 +162,7 @@ class TopContainerPortraitState extends State<TopContainerPortrait> {
                               decoration: InputDecoration(
                                 icon: Icon(
                                   Icons.search,
-                                  size: 2.5 * SizeConfig.heightMultiplier,
+                                  size: 2.5 * ResponsiveSize.height,
                                   color: Colors.grey[600],
                                 ),
                                 border: InputBorder.none,
@@ -200,7 +200,7 @@ class TopContainerLandscapeState extends State<TopContainerLandscape> {
       heightFactor: 0.896,
       alignment: Alignment.topCenter,
       child: Container(
-        padding: EdgeInsets.only(top: 6.0 * SizeConfig.heightMultiplier),
+        padding: EdgeInsets.only(top: 6.0 * ResponsiveSize.height),
         decoration: BoxDecoration(
           color: AppTheme.white,
         ),
@@ -213,31 +213,31 @@ class TopContainerLandscapeState extends State<TopContainerLandscape> {
                 ),
                 Container(
                   alignment: Alignment.centerRight,
-                  padding: EdgeInsets.only(right: 3 * SizeConfig.widthMultiplier),
+                  padding: EdgeInsets.only(right: 3 * ResponsiveSize.width),
                   child: Text('Blocked', style: TextStyle(fontSize: 17, color: Colors.grey, fontWeight: FontWeight.normal)),
                 )
               ],
             ),
             Padding(
               padding: EdgeInsets.only(
-                  top: 2.5 * SizeConfig.heightMultiplier
+                  top: 2.5 * ResponsiveSize.height
               ),
             ),
             Divider(color: Colors.grey[300], thickness: 1, height: 1),
             Container(
               padding: EdgeInsets.only(
-                top: 2.3 * SizeConfig.heightMultiplier,
-                left: 4 * SizeConfig.heightMultiplier,
-                right: 4 * SizeConfig.heightMultiplier,
-                bottom: 2.3 * SizeConfig.heightMultiplier,
+                top: 2.3 * ResponsiveSize.height,
+                left: 4 * ResponsiveSize.height,
+                right: 4 * ResponsiveSize.height,
+                bottom: 2.3 * ResponsiveSize.height,
               ),
               child: Row(
                 children: <Widget>[
                   Expanded(
                     flex: 7,
                     child: Container(
-                      height: 5.2 * SizeConfig.heightMultiplier,
-                      padding: EdgeInsets.symmetric(horizontal: 2 * SizeConfig.heightMultiplier),
+                      height: 5.2 * ResponsiveSize.height,
+                      padding: EdgeInsets.symmetric(horizontal: 2 * ResponsiveSize.height),
                       decoration: BoxDecoration(
                         color: Colors.grey[200],
                         borderRadius: BorderRadius.all(
@@ -253,7 +253,7 @@ class TopContainerLandscapeState extends State<TopContainerLandscape> {
                               decoration: InputDecoration(
                                   icon: Icon(
                                     Icons.search,
-                                    size: 2.5 * SizeConfig.heightMultiplier,
+                                    size: 2.5 * ResponsiveSize.height,
                                     color: Colors.grey[600],
                                   ),
                                   border: InputBorder.none,

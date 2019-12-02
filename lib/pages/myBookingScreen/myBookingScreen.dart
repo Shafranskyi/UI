@@ -1,8 +1,8 @@
 import 'package:ui/pages/myBookingScreen/bubbleTabIndicator.dart';
 import 'package:ui/redux/models/myBookingItem.dart';
 import 'package:ui/redux/viewModel.dart';
+import 'package:ui/setting/responsiveSize.dart';
 import 'package:ui/setting/responsiveWidget.dart';
-import 'package:ui/setting/sizeConfig.dart';
 import 'package:ui/setting/strings.dart';
 import 'package:ui/setting/styling.dart';
 import 'package:ui/redux/appState.dart';
@@ -39,7 +39,7 @@ class MyBookingScreenState extends State<MyBookingScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Container(
-                      constraints: BoxConstraints(maxHeight: 40 * (MediaQuery.of(context).orientation == Orientation.portrait ? SizeConfig.heightMultiplier : SizeConfig.widthMultiplier)),
+                      constraints: BoxConstraints(maxHeight: 40 * (MediaQuery.of(context).orientation == Orientation.portrait ? ResponsiveSize.height : ResponsiveSize.width)),
                       child: Stack(
                         children: <Widget>[
                           ResponsiveWidget(
@@ -50,7 +50,7 @@ class MyBookingScreenState extends State<MyBookingScreen> {
                       ),
                     ),
                     Container(
-                      constraints: BoxConstraints(maxHeight: 88 * SizeConfig.heightMultiplier),
+                      constraints: BoxConstraints(maxHeight: 88 * ResponsiveSize.height),
                       decoration: BoxDecoration(
                         color: AppTheme.white,
                       ),
@@ -119,20 +119,18 @@ class TopContainerPortraitState extends State<TopContainerPortrait> {
   Widget build(BuildContext context) {
     double radius = 25;
 
-    if(SizeConfig.widthMultiplier * 100 > 450){
-      radius = 35;
-      if(MediaQuery.of(context).orientation == Orientation.landscape)
-        radius = 20;
-    }
-    else{
+    if(ResponsiveSize.phonePort){
       radius = 25;
+    }
+    if(ResponsiveSize.tabPort){
+      radius = 35;
     }
 
     return FractionallySizedBox(
       heightFactor: 0.633,
       alignment: Alignment.topCenter,
       child: Container(
-        padding: EdgeInsets.only(top: 6.0 * SizeConfig.heightMultiplier),
+        padding: EdgeInsets.only(top: 6.0 * ResponsiveSize.height),
         decoration: BoxDecoration(
           color: AppTheme.white,
         ),
@@ -147,22 +145,22 @@ class TopContainerPortraitState extends State<TopContainerPortrait> {
             ),
             Padding(
               padding: EdgeInsets.only(
-                  top: 2.5 * SizeConfig.heightMultiplier
+                  top: 2.5 * ResponsiveSize.height
               ),
             ),
             Divider(color: Colors.grey[300], thickness: 1, height: 1),
             Container(
               padding: EdgeInsets.only(
-                top: 3.6 * SizeConfig.heightMultiplier,
-                left: 3 * SizeConfig.heightMultiplier,
-                right: 3 * SizeConfig.heightMultiplier,
-                bottom: 3 * SizeConfig.heightMultiplier,
+                top: 3.6 * ResponsiveSize.height,
+                left: 3 * ResponsiveSize.height,
+                right: 3 * ResponsiveSize.height,
+                bottom: 3 * ResponsiveSize.height,
               ),
               child: Row(
                 children: <Widget>[
                   Expanded(
                     child: Container(
-                      height: 7 * SizeConfig.heightMultiplier,
+                      height: 7 * ResponsiveSize.height,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.all(
                             Radius.circular(radius),
@@ -201,11 +199,20 @@ class TopContainerLandscapeState extends State<TopContainerLandscape> {
 
   @override
   Widget build(BuildContext context) {
+    double radius = 25;
+
+    if(ResponsiveSize.phoneLand){
+      radius = 25;
+    }
+    if(ResponsiveSize.tabLand){
+      radius = 35;
+    }
+
     return FractionallySizedBox(
-      heightFactor: 1.077,
+      heightFactor: 1,
       alignment: Alignment.topCenter,
       child: Container(
-        padding: EdgeInsets.only(top: 6.0 * SizeConfig.heightMultiplier),
+        padding: EdgeInsets.only(top: 6.0 * ResponsiveSize.height),
         decoration: BoxDecoration(
           color: AppTheme.white,
         ),
@@ -220,25 +227,25 @@ class TopContainerLandscapeState extends State<TopContainerLandscape> {
             ),
             Padding(
               padding: EdgeInsets.only(
-                  top: 2.5 * SizeConfig.heightMultiplier
+                  top: 2.5 * ResponsiveSize.height
               ),
             ),
             Divider(color: Colors.grey[300], thickness: 1, height: 1),
             Container(
               padding: EdgeInsets.only(
-                top: 3.6 * SizeConfig.heightMultiplier,
-                left: 4 * SizeConfig.heightMultiplier,
-                right: 4 * SizeConfig.heightMultiplier,
-                bottom: 3.6 * SizeConfig.heightMultiplier,
+                top: 2.6 * ResponsiveSize.height,
+                left: 4 * ResponsiveSize.height,
+                right: 4 * ResponsiveSize.height,
+                bottom: 2.6 * ResponsiveSize.height,
               ),
               child: Row(
                 children: <Widget>[
                   Expanded(
                     child: Container(
-                      height: 7 * SizeConfig.heightMultiplier,
+                      height: 7 * ResponsiveSize.height,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.all(
-                            Radius.circular(25),
+                            Radius.circular(radius),
                           ),
                           border: Border.all(color: Colors.grey[300]),
                       ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ui/pages/myBookingScreen/modalWindow.dart';
+import 'package:ui/setting/responsiveSize.dart';
 
-import 'package:ui/setting/sizeConfig.dart';
 import 'package:ui/setting/styling.dart';
 
 class MyBookingItem extends StatefulWidget {
@@ -55,14 +55,14 @@ class MyBookingItemState extends State<MyBookingItem> {
   @override
   Widget build(BuildContext context) {
 
-    double widthItem = 100 * SizeConfig.widthMultiplier;
-    double widthNameAndLocationContainers = 50.0 * SizeConfig.widthMultiplier;
-    double widthCheckContainers = 35 * SizeConfig.widthMultiplier;
+    double widthItem = 100 * ResponsiveSize.width;
+    double widthNameAndLocationContainers = 50.0 * ResponsiveSize.width;
+    double widthCheckContainers = 35 * ResponsiveSize.width;
 
     if(MediaQuery.of(context).orientation == Orientation.landscape) {
-      widthItem = 100 * SizeConfig.heightMultiplier;
-      widthNameAndLocationContainers = 70 * SizeConfig.heightMultiplier;
-      widthCheckContainers = 36 * SizeConfig.heightMultiplier;
+      widthItem = 100 * ResponsiveSize.height;
+      widthNameAndLocationContainers = 70 * ResponsiveSize.height;
+      widthCheckContainers = 36 * ResponsiveSize.height;
     }
 
 
@@ -75,10 +75,10 @@ class MyBookingItemState extends State<MyBookingItem> {
             child: Stack(
               children: <Widget>[
                 Container(
-                  padding: EdgeInsets.only(bottom: 12 * SizeConfig.heightMultiplier, right: 3 * SizeConfig.widthMultiplier, top: 3.3 * SizeConfig.heightMultiplier, left: 3.5 * SizeConfig.widthMultiplier),
+                  padding: EdgeInsets.only(bottom: 12 * ResponsiveSize.height, right: 3 * ResponsiveSize.width, top: 3.3 * ResponsiveSize.height, left: 3.5 * ResponsiveSize.width),
                   child: ClipRRect(
                     borderRadius: BorderRadius.all(
-                      Radius.circular(3 * SizeConfig.heightMultiplier),
+                      Radius.circular(3 * ResponsiveSize.height),
                     ),
                     child: AspectRatio(
                       aspectRatio: 1,
@@ -102,14 +102,14 @@ class MyBookingItemState extends State<MyBookingItem> {
 
     final middleSection =  Expanded(
       child: Container(
-        padding: EdgeInsets.only(left: 1 * SizeConfig.widthMultiplier, top: 3.5 * SizeConfig.heightMultiplier),
+        padding: EdgeInsets.only(left: 1 * ResponsiveSize.width, top: 3.5 * ResponsiveSize.height),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Row(
               children: <Widget>[
                 Container(
-                  height: 8 * SizeConfig.heightMultiplier,
+                  height: 8 * ResponsiveSize.height,
                   width: widthNameAndLocationContainers,
                   child: Text(
                     name,
@@ -122,8 +122,8 @@ class MyBookingItemState extends State<MyBookingItem> {
                 ),
                 Container(
                   alignment: Alignment.topRight,
-                  width: 20 * SizeConfig.widthMultiplier,
-                  height: 8 * SizeConfig.heightMultiplier,
+                  width: 20 * ResponsiveSize.width,
+                  height: 8 * ResponsiveSize.height,
                   child: IconButton(
                     icon: Icon(Icons.menu),
                     onPressed: () => modal.mainBottomSheet(context),
@@ -132,7 +132,7 @@ class MyBookingItemState extends State<MyBookingItem> {
               ],
             ),
             Container(
-              height: 7 * SizeConfig.heightMultiplier,
+              height: 7 * ResponsiveSize.height,
               width: widthNameAndLocationContainers,
               child: Text(
                   location,
@@ -142,13 +142,13 @@ class MyBookingItemState extends State<MyBookingItem> {
               ),
             ),
             Container(
-                height: 7 * SizeConfig.heightMultiplier,
+                height: 7 * ResponsiveSize.height,
                 width: widthCheckContainers * 2.0,
                 child: Row(
                   children: <Widget>[
                     Container(
                         width: widthCheckContainers,
-                        height: 7 * SizeConfig.heightMultiplier,
+                        height: 7 * ResponsiveSize.height,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: <Widget>[
@@ -183,7 +183,7 @@ class MyBookingItemState extends State<MyBookingItem> {
                     ),
                     Container(
                       width: widthCheckContainers,
-                      height: 7 * SizeConfig.heightMultiplier,
+                      height: 7 * ResponsiveSize.height,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: <Widget>[
@@ -225,7 +225,7 @@ class MyBookingItemState extends State<MyBookingItem> {
     );
 
     return Container(
-      height: 28 * SizeConfig.heightMultiplier,
+      height: 28 * ResponsiveSize.height,
       width: widthItem,
       color: AppTheme.white,
       child: Row(

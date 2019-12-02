@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:ui/pages/homeScreen/starRating.dart';
-import 'package:ui/setting/sizeConfig.dart';
+import 'package:ui/setting/responsiveSize.dart';
 import 'package:ui/setting/styling.dart';
 
 class HomeItem extends StatefulWidget{
@@ -62,7 +62,7 @@ class HomeItemState extends State<HomeItem> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 3 * SizeConfig.widthMultiplier),
+      margin: EdgeInsets.symmetric(horizontal: 3 * ResponsiveSize.width),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -70,7 +70,7 @@ class HomeItemState extends State<HomeItem> {
             flex: 8,
             child: ClipRRect(
               borderRadius: BorderRadius.all(
-                Radius.circular(3 * SizeConfig.heightMultiplier),
+                Radius.circular(3 * ResponsiveSize.height),
               ),
               child: AspectRatio(
                 aspectRatio: 1,
@@ -110,11 +110,11 @@ class HomeItemState extends State<HomeItem> {
                           bottom: 7.0,
                           right: 9.0,
                           child: Container(
-                            height: 3.5 * SizeConfig.heightMultiplier,
+                            height: 3.5 * ResponsiveSize.height,
                             decoration: BoxDecoration(
                               color: Colors.black.withOpacity(0.3),
                               borderRadius: BorderRadius.all(
-                                Radius.circular(3.0 * SizeConfig.heightMultiplier),
+                                Radius.circular(3.0 * ResponsiveSize.height),
                               ),
                             ),
                             child: Row(
@@ -134,7 +134,7 @@ class HomeItemState extends State<HomeItem> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.all(2.0 * SizeConfig.widthMultiplier),
+            padding: EdgeInsets.all(2.0 * ResponsiveSize.width),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
@@ -144,7 +144,7 @@ class HomeItemState extends State<HomeItem> {
                   onRatingChanged: (rating) => setState(() => this.rating = rating),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(top: 1.0 * SizeConfig.heightMultiplier),
+                  padding: EdgeInsets.only(top: 1.0 * ResponsiveSize.height),
                   child: SizedBox(
                     width: 115,
                     child: Text(
@@ -155,7 +155,7 @@ class HomeItemState extends State<HomeItem> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(top: 1.0 * SizeConfig.heightMultiplier),
+                  padding: EdgeInsets.only(top: 1.0 * ResponsiveSize.height),
                   child: Text(
                     "\$$numberOfCourses",
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),

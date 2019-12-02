@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ui/setting/sizeConfig.dart';
+import 'package:ui/setting/responsiveSize.dart';
 
 class MyTab extends StatefulWidget{
   final String title;
@@ -21,20 +21,18 @@ class MyTabState extends State<MyTab>{
     double width = 21.7;
 
 
-    if(MediaQuery.of(context).size.shortestSide > 600){
-      width = 24.4;
-      if(MediaQuery.of(context).orientation == Orientation.landscape) {
-        width = 47.3;
-      }
+    if(ResponsiveSize.phonePort){
+      width = 22.0;
     }
-    else{
-      width = 21.7;
-      if(MediaQuery.of(context).orientation == Orientation.landscape) {
-        width = 42.5;
-      }
+    else if(ResponsiveSize.phoneLand){
+      width = 42.5;
     }
-
-
+    else if(ResponsiveSize.tabPort){
+      width = 24.3;
+    }
+    else if(ResponsiveSize.tabLand){
+      width = 47.0;
+    }
 
 
     return Container(
@@ -48,8 +46,8 @@ class MyTabState extends State<MyTab>{
         ),
         alignment: Alignment.center,
       ),
-      height: 5 * SizeConfig.heightMultiplier,
-      width: width * SizeConfig.widthMultiplier,
+      height: 5 * ResponsiveSize.height,
+      width: width * ResponsiveSize.width,
     );
   }
 }

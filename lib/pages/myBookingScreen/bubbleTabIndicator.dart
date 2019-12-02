@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:bubble_tab_indicator/bubble_tab_indicator.dart';
 import 'package:ui/pages/myBookingScreen/myTab.dart';
-import 'package:ui/setting/sizeConfig.dart';
+import 'package:ui/setting/responsiveSize.dart';
 import 'package:ui/setting/styling.dart';
 
 class BubbleTab extends StatefulWidget {
@@ -38,7 +38,7 @@ class BubbleTabState extends State<BubbleTab> with SingleTickerProviderStateMixi
       labelColor: Colors.white,
       indicatorSize: TabBarIndicatorSize.tab,
       indicator: new BubbleTabIndicator(
-        indicatorHeight: 5 * SizeConfig.heightMultiplier,
+        indicatorHeight: 5 * ResponsiveSize.height,
         indicatorColor: AppTheme.selectedTabBackgroundColor,
         tabBarIndicatorSize: TabBarIndicatorSize.tab,
       ),
