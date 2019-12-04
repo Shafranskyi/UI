@@ -3,7 +3,6 @@ import 'package:ui/redux/models/myBookingItem.dart';
 import 'package:ui/redux/viewModel.dart';
 import 'package:ui/setting/responsiveSize.dart';
 import 'package:ui/setting/responsiveWidget.dart';
-import 'package:ui/setting/strings.dart';
 import 'package:ui/setting/styling.dart';
 import 'package:ui/redux/appState.dart';
 
@@ -22,14 +21,36 @@ class MyBookingScreen extends StatefulWidget{
 
 class MyBookingScreenState extends State<MyBookingScreen> {
 
+  List<Widget> _buildList(List<MyBookingItem> list) {
+    List<Widget> items = []; // this will hold Rows according to available lines
+    for (var line in list.toList()) {
+      items.add(MyBookingItem(
+        imagePath: line.imagePath,
+        lastMessage: line.lastMessage,
+        lastTime: line.lastTime,
+        location: line.location,
+        name: line.name,
+      ));
+      items.add(
+        Divider(color: Colors.grey[300], thickness: 1, height: 1),
+      );
+    }
+    return items;
+  }
+
   @override
   Widget build(BuildContext context) {
-//    double listHeight;
-//
-//    if(ResponsiveSize.phonePort || ResponsiveSize.tabPort)
-//      listHeight = 66;
-//    else if(ResponsiveSize.phoneLand || ResponsiveSize.tabLand)
-//      listHeight = 88;
+    ResponsiveSize().init(context);
+
+    double heightList;
+
+    if(ResponsiveSize.phonePort || ResponsiveSize.tabPort){
+      heightList = 66.0;
+    }
+    if(ResponsiveSize.phoneLand || ResponsiveSize.tabLand){
+      heightList = 29.0;
+    }
+    print(heightList);
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -57,7 +78,7 @@ class MyBookingScreenState extends State<MyBookingScreen> {
                       ),
                     ),
                     Container(
-                      constraints: BoxConstraints(maxHeight: 88 * ResponsiveSize.height),
+                      constraints: BoxConstraints(maxHeight: heightList * ResponsiveSize.height),
                       decoration: BoxDecoration(
                         color: AppTheme.selectedTabBackgroundColor,
                       ),
@@ -69,50 +90,7 @@ class MyBookingScreenState extends State<MyBookingScreen> {
                               scrollDirection: Axis.vertical,
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  MyBookingItem(
-                                    name: Strings.ParkPlazaWB,
-                                    lastTime: '12.09.19',
-                                    location: Strings.MyBookingLocation,
-                                    lastMessage: 'Do you want to have coffee tonight?',
-                                    imagePath: 'assets/image5.png',
-                                  ),
-                                  MyBookingItem(
-                                    name: Strings.ParkPlazaWB,
-                                    lastTime: '12.09.19',
-                                    location: Strings.MyBookingLocation,
-                                    lastMessage: 'Do you want to have coffee tonight?',
-                                    imagePath: 'assets/image5.png',
-                                  ),
-                                  MyBookingItem(
-                                    name: Strings.ParkPlazaWB,
-                                    lastTime: '12.09.19',
-                                    location: Strings.MyBookingLocation,
-                                    lastMessage: 'Do you want to have coffee tonight?',
-                                    imagePath: 'assets/image5.png',
-                                  ),
-                                  MyBookingItem(
-                                    name: Strings.ParkPlazaWB,
-                                    lastTime: '12.09.19',
-                                    location: Strings.MyBookingLocation,
-                                    lastMessage: 'Do you want to have coffee tonight?',
-                                    imagePath: 'assets/image5.png',
-                                  ),
-                                  MyBookingItem(
-                                    name: Strings.ParkPlazaWB,
-                                    lastTime: '12.09.19',
-                                    location: Strings.MyBookingLocation,
-                                    lastMessage: 'Do you want to have coffee tonight?',
-                                    imagePath: 'assets/image5.png',
-                                  ),
-                                  MyBookingItem(
-                                    name: Strings.ParkPlazaWB,
-                                    lastTime: '12.09.19',
-                                    location: Strings.MyBookingLocation,
-                                    lastMessage: 'Do you want to have coffee tonight?',
-                                    imagePath: 'assets/image5.png',
-                                  )
-                                ], //_buildList(viewModel.connects)
+                                children: _buildList(viewModel.myBookings) //_buildList(viewModel.connects)
                               ),
                             ),
                           ),
@@ -129,22 +107,7 @@ class MyBookingScreenState extends State<MyBookingScreen> {
   }
 }
 
-//List<Widget> _buildList(List<MyBookingItem> list) {
-//  List<Widget> items = []; // this will hold Rows according to available lines
-//  for (var line in list.toList()) {
-//    items.add(MyBookingItem(
-//      imagePath: line.imagePath,
-//      lastMessage: line.lastMessage,
-//      lastTime: line.lastTime,
-//      location: line.location,
-//      name: line.name,
-//    ));
-//    items.add(
-//      Divider(color: Colors.grey[300], thickness: 1, height: 1),
-//    );
-//  }
-//  return items;
-//}
+
 
 
 class TopContainerPortrait extends StatefulWidget{

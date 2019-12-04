@@ -20,8 +20,23 @@ class HomeScreen extends StatefulWidget{
 }
 
 class HomeScreenState extends State<HomeScreen> {
+  List<Widget> _buildList(List<HomeItem> list) {
+    List<Widget> items = []; // this will hold Rows according to available lines
+    for (var line in list.toList()) {
+      items.add(HomeItem(
+          name: line.name,
+          recommended: line.recommended,
+          price: line.price,
+          rating: line.rating,
+          imagePath: line.imagePath
+      ));
+    }
+    return items;
+  }
+
   @override
   Widget build(BuildContext context) {
+    ResponsiveSize().init(context);
     return Scaffold(
       backgroundColor: AppTheme.white,
       body: StoreConnector<AppState, ViewModel>(
@@ -105,20 +120,6 @@ class HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
-}
-
-List<Widget> _buildList(List<HomeItem> list) {
-  List<Widget> items = []; // this will hold Rows according to available lines
-  for (var line in list.toList()) {
-    items.add(HomeItem(
-        name: line.name,
-        recommended: line.recommended,
-        price: line.price,
-        rating: line.rating,
-        imagePath: line.imagePath
-    ));
-  }
-  return items;
 }
 
 

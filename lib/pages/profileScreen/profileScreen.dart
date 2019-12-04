@@ -19,9 +19,9 @@ class ProfileScreen extends StatefulWidget{
 }
 
 class ProfileScreenState extends State<ProfileScreen> {
-
   @override
   Widget build(BuildContext context) {
+    ResponsiveSize().init(context);
     return Scaffold(
       backgroundColor: Colors.white,
       body: StoreConnector<AppState, ViewModel>(

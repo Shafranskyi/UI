@@ -7,24 +7,12 @@ import 'package:ui/router/router.dart';
 import 'package:ui/setting/styling.dart';
 import 'package:ui/setting/sizeConfig.dart';
 
-//import 'package:ui/pages/splashScreen/splash_screen.dart';
-
 void main()
 {
   final Store<AppState> _store = Store<AppState>(appStateReducer, initialState: AppState.initialState());
 
   runApp(MyApp(store: _store));
 }
-
-//class MyApp extends StatelessWidget {
-//  // This widget is the root of your application.
-//  @override
-//  Widget build(BuildContext context) {
-//    return MaterialApp(
-//      home: HomeScreen(),
-//    );
-//  }
-//}
 
 class MyApp extends StatelessWidget {
   final Store<AppState> store;

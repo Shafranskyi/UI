@@ -18,7 +18,7 @@ class MyTabState extends State<MyTab>{
 
   @override
   Widget build(BuildContext context) {
-    double width = 21.7;
+    double width;
 
     if(ResponsiveSize.phonePort){
       width = 22.0;

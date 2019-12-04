@@ -18,9 +18,27 @@ class ConnectScreen extends StatefulWidget{
 }
 
 class ConnectScreenState extends State<ConnectScreen> {
+  List<Widget> _buildList(List<ConnectItem> list) {
+    List<Widget> items = []; // this will hold Rows according to available lines
+    for (var line in list.toList()) {
+      items.add(ConnectItem(
+        imagePath: line.imagePath,
+        countMessages: line.countMessages,
+        lastMessage: line.lastMessage,
+        lastTime: line.lastTime,
+        location: line.location,
+        name: line.name,
+      ));
+      items.add(
+        Divider(color: Colors.grey[300], thickness: 1, height: 1),
+      );
+    }
+    return items;
+  }
 
   @override
   Widget build(BuildContext context) {
+    ResponsiveSize().init(context);
     return Scaffold(
       backgroundColor: Colors.white,
       body: StoreConnector<AppState, ViewModel>(
@@ -74,24 +92,6 @@ class ConnectScreenState extends State<ConnectScreen> {
       ),
     );
   }
-}
-
-List<Widget> _buildList(List<ConnectItem> list) {
-  List<Widget> items = []; // this will hold Rows according to available lines
-  for (var line in list.toList()) {
-    items.add(ConnectItem(
-      imagePath: line.imagePath,
-      countMessages: line.countMessages,
-      lastMessage: line.lastMessage,
-      lastTime: line.lastTime,
-      location: line.location,
-      name: line.name,
-    ));
-    items.add(
-      Divider(color: Colors.grey[300], thickness: 1, height: 1),
-    );
-  }
-  return items;
 }
 
 
