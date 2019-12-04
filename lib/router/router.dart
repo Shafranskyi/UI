@@ -1,6 +1,7 @@
 import 'package:ui/pages/connectScreen/connectScreen.dart';
 import 'package:ui/pages/homeScreen/homeScreen.dart';
 import 'package:ui/pages/myBookingScreen/myBookingScreen.dart';
+import 'package:ui/pages/profileScreen/profileScreen.dart';
 import 'package:ui/setting/responsiveSize.dart';
 import 'package:ui/setting/styling.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,7 @@ class RouterState extends State<Router> {
     ConnectScreen(),
     MyBookingScreen(),
     ConnectScreen(),
-    HomeScreen(),
+    ProfileScreen(),
   ];
 
   void _incrementTab(index) {

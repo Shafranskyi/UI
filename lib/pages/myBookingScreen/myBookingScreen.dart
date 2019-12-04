@@ -24,6 +24,13 @@ class MyBookingScreenState extends State<MyBookingScreen> {
 
   @override
   Widget build(BuildContext context) {
+//    double listHeight;
+//
+//    if(ResponsiveSize.phonePort || ResponsiveSize.tabPort)
+//      listHeight = 66;
+//    else if(ResponsiveSize.phoneLand || ResponsiveSize.tabLand)
+//      listHeight = 88;
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: StoreConnector<AppState, ViewModel>(
@@ -52,7 +59,7 @@ class MyBookingScreenState extends State<MyBookingScreen> {
                     Container(
                       constraints: BoxConstraints(maxHeight: 88 * ResponsiveSize.height),
                       decoration: BoxDecoration(
-                        color: AppTheme.white,
+                        color: AppTheme.selectedTabBackgroundColor,
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -63,6 +70,41 @@ class MyBookingScreenState extends State<MyBookingScreen> {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
+                                  MyBookingItem(
+                                    name: Strings.ParkPlazaWB,
+                                    lastTime: '12.09.19',
+                                    location: Strings.MyBookingLocation,
+                                    lastMessage: 'Do you want to have coffee tonight?',
+                                    imagePath: 'assets/image5.png',
+                                  ),
+                                  MyBookingItem(
+                                    name: Strings.ParkPlazaWB,
+                                    lastTime: '12.09.19',
+                                    location: Strings.MyBookingLocation,
+                                    lastMessage: 'Do you want to have coffee tonight?',
+                                    imagePath: 'assets/image5.png',
+                                  ),
+                                  MyBookingItem(
+                                    name: Strings.ParkPlazaWB,
+                                    lastTime: '12.09.19',
+                                    location: Strings.MyBookingLocation,
+                                    lastMessage: 'Do you want to have coffee tonight?',
+                                    imagePath: 'assets/image5.png',
+                                  ),
+                                  MyBookingItem(
+                                    name: Strings.ParkPlazaWB,
+                                    lastTime: '12.09.19',
+                                    location: Strings.MyBookingLocation,
+                                    lastMessage: 'Do you want to have coffee tonight?',
+                                    imagePath: 'assets/image5.png',
+                                  ),
+                                  MyBookingItem(
+                                    name: Strings.ParkPlazaWB,
+                                    lastTime: '12.09.19',
+                                    location: Strings.MyBookingLocation,
+                                    lastMessage: 'Do you want to have coffee tonight?',
+                                    imagePath: 'assets/image5.png',
+                                  ),
                                   MyBookingItem(
                                     name: Strings.ParkPlazaWB,
                                     lastTime: '12.09.19',

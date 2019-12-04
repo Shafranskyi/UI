@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:ui/setting/responsiveSize.dart';
 
-import 'package:ui/setting/sizeConfig.dart';
 import 'package:ui/setting/styling.dart';
 
 class ConnectItem extends StatefulWidget{
@@ -78,7 +78,7 @@ class ConnectItemState extends State<ConnectItem> {
                   padding: EdgeInsets.only(bottom: 35.0, right: 15.0, top: 15.0, left: 15.0),
                   child: ClipRRect(
                     borderRadius: BorderRadius.all(
-                      Radius.circular(3 * SizeConfig.heightMultiplier),
+                      Radius.circular(3 * ResponsiveSize.height),
                     ),
                     child: AspectRatio(
                       aspectRatio: 1,
@@ -99,8 +99,8 @@ class ConnectItemState extends State<ConnectItem> {
                     bottom: 35.0,
                     right: 15.0,
                     child: Container(
-                      height: 3.2 * SizeConfig.heightMultiplier,
-                      width: 3.2 * SizeConfig.heightMultiplier,
+                      height: 3.2 * ResponsiveSize.height,
+                      width: 3.2 * ResponsiveSize.height,
                       alignment: Alignment.center,
                       decoration: new BoxDecoration(
                         shape: BoxShape.circle,
@@ -170,13 +170,13 @@ class ConnectItemState extends State<ConnectItem> {
         ]
     );
 
-    double widthItem = 100 * SizeConfig.widthMultiplier;
+    double widthItem = 100 * ResponsiveSize.width;
 
     if(MediaQuery.of(context).orientation == Orientation.landscape)
-      widthItem = 100 * SizeConfig.heightMultiplier;
+      widthItem = 100 * ResponsiveSize.height;
 
     return Container(
-      height: 14.5 * SizeConfig.heightMultiplier,
+      height: 14.5 * ResponsiveSize.height,
       width: widthItem,
       color: AppTheme.white,
       child: Row(
