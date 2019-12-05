@@ -50,7 +50,6 @@ class MyBookingScreenState extends State<MyBookingScreen> {
     if(ResponsiveSize.phoneLand || ResponsiveSize.tabLand){
       heightList = 29.0;
     }
-    print(heightList);
 
     return Scaffold(
       backgroundColor: Colors.white,

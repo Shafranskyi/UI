@@ -30,7 +30,6 @@ class MyApp extends StatelessWidget {
                 SizeConfig().init(constraints, orientation);
                 return MaterialApp(
                   debugShowCheckedModeBanner: false,
-                  title: 'Learning Platform Application',
                   theme: AppTheme.lightTheme,
                   home: Router(),
                 );

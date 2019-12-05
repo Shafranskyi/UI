@@ -31,6 +31,8 @@ dependencies:
 
   bubble_tab_indicator: ^0.1.4
 
+  cupertino_range_slider: ^1.0.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

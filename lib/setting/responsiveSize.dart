@@ -23,28 +23,28 @@ class ResponsiveSize{
     }
 
     if(MediaQuery.of(context).size.width < 600 && Orientation.portrait == MediaQuery.of(context).orientation){
-      print('phonePort');
+      //print('phonePort');
       phonePort = true;
       phoneLand = false;
       tabPort = false;
       tabLand = false;
     }
     else if(Orientation.landscape == MediaQuery.of(context).orientation && SizeConfig.heightMultiplier * 100 == MediaQuery.of(context).size.width){
-      print('phoneLand');
+      //print('phoneLand');
       phonePort = false;
       phoneLand = true;
       tabLand = false;
       tabPort = false;
     }
     else if(MediaQuery.of(context).size.width > 600 && Orientation.portrait == MediaQuery.of(context).orientation) {
-      print('tabPort');
+      //print('tabPort');
       phonePort = false;
       phoneLand = false;
       tabPort = true;
       tabLand = false;
     }
     else if(MediaQuery.of(context).size.width > 600 && Orientation.landscape == MediaQuery.of(context).orientation){
-      print('tabLand');
+      //print('tabLand');
       phonePort = false;
       phoneLand = false;
       tabPort = false;
