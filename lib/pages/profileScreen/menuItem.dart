@@ -21,6 +21,9 @@ class MenuItemState extends State<MenuItem> {
 
   @override
   Widget build(BuildContext context) {
+
+    print(ResponsiveSize.width * 100);
+
     return Container(
       padding: EdgeInsets.only(
         bottom: 1.9 * ResponsiveSize.height,

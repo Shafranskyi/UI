@@ -23,10 +23,10 @@ class SearchScreen extends StatefulWidget{
 }
 
 class SearchScreenState extends State<SearchScreen> {
-
   @override
   Widget build(BuildContext context) {
     ResponsiveSize().init(context);
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: StoreConnector<AppState, ViewModel>(
@@ -53,7 +53,6 @@ class SearchScreenState extends State<SearchScreen> {
                       ),
                     ),
                     Container(
-                      width: 100 * ResponsiveSize.width,
                       constraints: BoxConstraints(maxHeight: 88 * ResponsiveSize.height),
                       decoration: BoxDecoration(
                         color: AppTheme.white,
@@ -155,7 +154,7 @@ class TopContainerPortraitState extends State<TopContainerPortrait> {
       heightFactor: 0.29,
       alignment: Alignment.topCenter,
       child: Container(
-        padding: EdgeInsets.only(top: 6.0 * ResponsiveSize.height),
+        padding: EdgeInsets.only(top: 4.5 * ResponsiveSize.height),
         decoration: BoxDecoration(
           color: AppTheme.white,
         ),
@@ -164,12 +163,26 @@ class TopContainerPortraitState extends State<TopContainerPortrait> {
             Stack(
               children: <Widget>[
                 Center(
-                    child: Text('Options', style: TextStyle(fontSize: 17))
+                    child: Container(
+                      padding: EdgeInsets.only(top: 1.5 * ResponsiveSize.height),
+                      child: Text('Options', style: TextStyle(fontSize: 17)),
+                    )
                 ),
                 Container(
                   alignment: Alignment.centerRight,
-                  padding: EdgeInsets.only(right: 3 * ResponsiveSize.width),
+                  padding: EdgeInsets.only(right: 3 * ResponsiveSize.width, top: 1.5 * ResponsiveSize.height),
                   child: Text('Reset', style: TextStyle(fontSize: 16, color: Colors.grey, fontWeight: FontWeight.normal)),
+                ),
+                Container(
+                  height: 3 * ResponsiveSize.height,
+                  alignment: Alignment.topLeft,
+                  padding: EdgeInsets.only(left: 1.5 * ResponsiveSize.width),
+                  child: IconButton(
+                    icon: Icon(Icons.close),
+                    onPressed: (){
+
+                    },
+                  ),
                 )
               ],
             ),
@@ -191,10 +204,10 @@ class TopContainerLandscapeState extends State<TopContainerLandscape> {
   @override
   Widget build(BuildContext context) {
     return FractionallySizedBox(
-      heightFactor: 0.896,
+      heightFactor: 0.45,
       alignment: Alignment.topCenter,
       child: Container(
-        padding: EdgeInsets.only(top: 6.0 * ResponsiveSize.height),
+        padding: EdgeInsets.only(top: 4.5 * ResponsiveSize.height),
         decoration: BoxDecoration(
           color: AppTheme.white,
         ),
@@ -203,67 +216,29 @@ class TopContainerLandscapeState extends State<TopContainerLandscape> {
             Stack(
               children: <Widget>[
                 Center(
-                    child: Text('Options', style: TextStyle(fontSize: 17))
+                    child: Container(
+                      padding: EdgeInsets.only(top: 1.5 * ResponsiveSize.height),
+                      child: Text('Options', style: TextStyle(fontSize: 17)),
+                    )
                 ),
                 Container(
                   alignment: Alignment.centerRight,
-                  padding: EdgeInsets.only(right: 3 * ResponsiveSize.width),
-                  child: Text('Blocked', style: TextStyle(fontSize: 17, color: Colors.grey, fontWeight: FontWeight.normal)),
+                  padding: EdgeInsets.only(right: 3 * ResponsiveSize.width, top: 1.5 * ResponsiveSize.height),
+                  child: Text('Reset', style: TextStyle(fontSize: 16, color: Colors.grey, fontWeight: FontWeight.normal)),
+                ),
+                Container(
+                  height: 3 * ResponsiveSize.height,
+                  alignment: Alignment.topLeft,
+                  padding: EdgeInsets.only(left: 1.5 * ResponsiveSize.width),
+                  child: IconButton(
+                    icon: Icon(Icons.close),
+                    onPressed: (){
+
+                    },
+                  ),
                 )
               ],
             ),
-            Padding(
-              padding: EdgeInsets.only(
-                  top: 2.5 * ResponsiveSize.height
-              ),
-            ),
-            Divider(color: Colors.grey[300], thickness: 1, height: 1),
-            Container(
-              padding: EdgeInsets.only(
-                top: 2.3 * ResponsiveSize.height,
-                left: 4 * ResponsiveSize.height,
-                right: 4 * ResponsiveSize.height,
-                bottom: 2.3 * ResponsiveSize.height,
-              ),
-              child: Row(
-                children: <Widget>[
-                  Expanded(
-                    flex: 7,
-                    child: Container(
-                      height: 5.2 * ResponsiveSize.height,
-                      padding: EdgeInsets.symmetric(horizontal: 2 * ResponsiveSize.height),
-                      decoration: BoxDecoration(
-                        color: Colors.grey[200],
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(10),
-                        ),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: <Widget>[
-                          Expanded(
-                            child: TextField(
-                              textAlign: TextAlign.end,
-                              decoration: InputDecoration(
-                                  icon: Icon(
-                                    Icons.search,
-                                    size: 2.5 * ResponsiveSize.height,
-                                    color: Colors.grey[600],
-                                  ),
-                                  border: InputBorder.none,
-                                  hintText: Strings.SearchConnect,
-                                  hintStyle: TextStyle(fontSize: 14)
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Divider(color: Colors.grey[300], thickness: 1, height: 1),
           ],
         ),
       ),

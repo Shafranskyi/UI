@@ -15,11 +15,16 @@ class SortItem extends StatefulWidget{
 class SortItemState extends State<SortItem> {
   bool isChecked = false;
   final String title;
+  double heightElement = 5.0;
 
   SortItemState(this.title);
 
   @override
   Widget build(BuildContext context) {
+    if(ResponsiveSize.width * 100 > 450){
+      heightElement = 4.2;
+    }
+
     return Padding(
       padding: EdgeInsets.only(
         right: 1.5 * ResponsiveSize.height,
@@ -31,7 +36,7 @@ class SortItemState extends State<SortItem> {
           });
         },
         child: Container(
-          height: 5 * ResponsiveSize.height,
+          height: heightElement * ResponsiveSize.height,
           padding: EdgeInsets.only(
               left: 2 * ResponsiveSize.height,
               right: 2 * ResponsiveSize.height,

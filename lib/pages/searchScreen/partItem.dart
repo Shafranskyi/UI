@@ -11,7 +11,6 @@ class PartItem extends StatelessWidget {
     return Container(
       alignment: Alignment.centerLeft,
       height: 7 * ResponsiveSize.height,
-      width: 100 * ResponsiveSize.width,
       decoration: BoxDecoration(
         color: Colors.grey[200],
       ),
